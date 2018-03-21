@@ -1,0 +1,202 @@
+<aside id="sidebar">
+    <div class="sidebar-header">
+        <!-- Ani Theme -->
+        <img src="assets/images/flytta_logo_dark.png" width="80%" height="30px;">
+    </div>
+    <div class="sidenav-outer">
+        <div class="side-menu">
+            <div class="menu-body">
+                <ul class="sidenav">
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['home']">
+                            <!-- <i class="fa fa-home"></i> -->Home
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['home']">{{ 'dashboard' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['typography']">
+                            <!-- <i class="fa fa-text-width"></i> -->Typography
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['typography']" >{{ 'typography' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['grid']">
+                           <!--  <i class="fa fa-th-large"></i> -->Grid
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['grid']">{{ 'grid' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <!-- CRM -->
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['crm', 'user']">
+                            <!-- <i class="fa fa-th-large"></i> --> CRM
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header">{{ 'crm' | translate }}</li>
+                           <!--  <li><a [routerLink]="['crm']">{{ 'crm' | translate }}</a></li> -->
+                            <li><a [routerLink]="['crm', 'user']">{{ 'user' | translate }}</a></li>
+                            <li><a [routerLink]="['crm', 'request']">{{ 'request' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['tables', 'bootstrap-table']">
+                            <!-- <i class="fa fa-list"></i> -->Tables
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['tables', 'bootstrap-table']">{{ 'bootstrap_table' | translate }}</a></li>
+                            <li><a [routerLink]="['tables', 'data-table']">{{ 'data_table' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['forms', 'elements']">
+                            <!-- <i class="fa fa-yelp"></i> -->Forms
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header">{{ 'form' | translate }}</li>
+                            <li><a [routerLink]="['forms', 'elements']">{{ 'elements' | translate }}</a></li>
+                            <li><a [routerLink]="['forms', 'components']">{{ 'components' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['ui-elements', 'buttons']">
+                            <!-- <i class="fa fa-cloud-download"></i> --> UI - Elements
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header">{{ 'user_interface' | translate }}</li>
+                            <li><a [routerLink]="['ui-elements', 'alert']">{{ 'alerts' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'buttons']">{{ 'buttons' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'dropdown']">{{ 'dropdown' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'icons']">{{ 'icons' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'cards']">{{ 'cards' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'progressbar']">{{ 'progressbars' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'pagination']">{{ 'pagination' | translate }}</a></li>
+                            <li><a [routerLink]="['ui-elements', 'others']">{{ 'other_elements' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['charts', 'chart-js']">
+                           <!--  <i class="fa fa-line-chart"></i> -->
+                           Charts
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header" >{{ 'charts' | translate }}</li>
+                            <li><a [routerLink]="['charts', 'chart-js']">{{ 'charts_js' | translate }}</a></li>
+                            <li><a [routerLink]="['charts', 'c3-chart']">{{ 'c3_charts' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['calendar']">
+                            <!-- <i class="fa fa-calendar"></i> -->Calendar
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['calendar']">{{ 'calendar' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['mail', 'inbox']">
+                            <!-- <i class="fa fa-envelope-o"></i> --> Mail
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header">{{ 'mail' | translate }}</li>
+                            <li><a [routerLink]="['mail', 'inbox']">{{ 'inbox' | translate }}</a></li>
+                            <li><a [routerLink]="['mail', 'compose']">{{ 'compose' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a [routerLink]="['invoice']">
+                            <!-- <i class="fa fa-list-alt"></i> --> Invoice
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a [routerLink]="['invoice']">{{ 'invoice' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li [routerLinkActive]="['active']">
+                        <a href='http://www.strapui.com/docs/ani-angular2-theme/v1.0/'>
+                            <!-- <i class="fa fa-book"></i> -->Documents
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li><a href='http://www.strapui.com/docs/ani-angular2-theme/v1.0/'>{{ 'docs' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <!-- <i class="fa fa-file"></i> -->Pages
+                        </a>
+                        <ul class="nested-dropdown animated">
+                            <li class="sidemenu-header">{{ 'pages' | translate }}</li>
+                            <li><a [routerLink]="['blank-page']">{{ 'blankpage' | translate }}</a></li>
+                            <li><a [routerLink]="['/']">{{ 'login' | translate }}</a></li>
+                            <li><a [routerLink]="['/signup']">{{ 'signup' | translate }}</a></li>
+                            <li><a [routerLink]="['/error']">{{ '404page' | translate }}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       <!--  <div class="side-widgets">
+            <div class="widgets-content">
+                <div class="profile text-center">
+                    <a ui-sref="profile"><img src="assets/images/flat-avatar.png" class="user-avatar" /></a>
+                    <div class="text-center avatar-name">Ani Pascal</div>
+                </div>
+                <div class="calendar-container text-center">
+                    <div id="calendar1"></div>
+                </div>
+                <div class="news-feed">
+                    <div class="feed-header">{{ 'feed' | translate }}</div>
+                    <div class="feed-content">
+                        <ul class="feed">
+                            <li>
+                                <a href="javascript:void">{{ 'li1' | translate }}</a> <span class="feed-date">25/4/2015</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void">{{ 'li2' | translate }}</a> <span class="feed-date">25/4/2015</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void">{{ 'li3' | translate }}</a> <span class="feed-date">25/4/2015</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void">{{ 'li4' | translate }}</a> <span class="feed-date">25/4/2015</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</aside>
+
+<!-- <aside id="sidebar" *ngIf="sidebar_val == '1'">
+    <div class="sidebar-header">
+        Admin
+    </div>
+    <div class="sidenav-outer">        
+        <div class="side-menu">
+            <div class="menu-body">
+                <ul class="sidenav" >                    
+                    <li style="padding-top: 10px ! important" class="sidemenu-header"><strong>Services</strong></li>
+                    <li><a style="color: #fff! important" href="javascript:void" [routerLink]="['crm/rentals']">House Rentals</a></li>
+                    <li><a style="color: #fff! important" href="javascript:void" [routerLink]="['crm/mover']"> Packers and Movers</a></li>
+                    <li><a style="color: #fff! important" href="javascript:void" >Settling-in Services</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="side-widgets">
+            <div class="widgets-content">
+                <div class="profile">
+                    <div class="avatar-name">
+                        <p><strong>Name: </strong> Renu Sharma</p>
+                        <p><strong>Email: </strong> guddimona22@gmail.com</p>
+                        <p><strong>Contact: </strong> 7330920423</p>
+                    </div>
+                    <hr>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</aside> -->

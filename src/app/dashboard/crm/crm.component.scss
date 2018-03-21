@@ -1,0 +1,48 @@
+.mysidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.2s;
+  padding-top: 50px;
+}
+.mysidebar .closebtn {
+  position: absolute;
+  top: 4px;
+  left: -50px;
+  padding-left: 12px;
+  font-size: 25px;
+  float:right;
+}
+.mysidebar .closebtn:hover {
+  text-decoration: none;
+}
+
+.mysidebar .card-header {
+  background-color: #f0ad4e
+}
+
+agm-map {
+  height: 230px;
+}
+
+:host /deep/  {
+  table{
+    margin-top:20px;
+    margin-bottom: 20px;
+    .ng2-smart-titles{
+      border-top: 1px solid rgba(0, 0, 0, 0.1); 
+    }
+    th{
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    td{
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}

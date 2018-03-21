@@ -1,0 +1,31 @@
+<div class="animate card crm-row">
+		<div class="card-header card-primary">
+		<div class="card-title">
+			<strong>Service Request Form</strong>
+		</div>		
+	</div>
+	<div class="card-block">
+		<div class="row" style="padding-top:10px">
+    		<div class="col-lg-2 col-sm-4">
+    			<input #search class="form-control search" type="text" placeholder="Search..." (keyup)="onSearch(search.value)">
+    		</div>
+    		<div class="col-lg-1 col-sm-2">
+    			<button class="btn btn-secondary" (click)="reload()">Refresh</button>
+    		</div>
+    		<div class="col-lg-3 col-sm-6">
+    			<button class="btn btn-secondary" (click)="exportToExcel()">export as csv</button>
+    		</div>
+    		<div class="col-lg-6 col-sm-12">
+    			<div class="input-group" style="float:right;width:initial ! important">
+    				<label style="margin: 10px;">Filter By date</label>
+                    <input name="date" class="form-control" placeholder="From" [theme]="'dp-material'" [(ngModel)]="selectedDate1" [dpDayPicker]="config" />
+                   <!--  <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
+                    <input name="date" class="form-control" placeholder="To" [theme]="'dp-material'" [(ngModel)]="selectedDate2" [dpDayPicker]="config" />
+                    <span class="input-group-addon" (click)="filterbyDate()"><i class="fa fa-calendar"></i></span>
+                </div>
+    		</div>
+    	</div>          	
+        <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)"></ng2-smart-table>
+	</div>
+</div>
+

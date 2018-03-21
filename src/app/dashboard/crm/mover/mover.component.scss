@@ -1,0 +1,43 @@
+.mysidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.2s;
+  padding-top: 50px;
+}
+.mysidebar .closebtn {
+  position: absolute;
+  top: 4px;
+ /* left: -50px;*/
+  padding-left: 12px;
+ /* font-size: 25px;*/
+  float:right;
+}
+.mysidebar .closebtn:hover {
+  text-decoration: none;
+}
+
+.mysidebar .card-header {
+  background-color: #f0ad4e;
+  top:fixed;
+}
+
+.mysidebar .mysidebar-card{
+  min-height: 100%
+}
+
+agm-map {
+  height: 230px;
+}
+
+.mover-card{
+  height:230px;
+}
+.mover-addr{
+  height:70px;
+}

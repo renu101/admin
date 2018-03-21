@@ -1,0 +1,165 @@
+<h1 class="text-center"><small>Service Request Form</small></h1>
+<div class="container">
+	<div class="head-containter" *ngIf="serviceData">
+		<p><strong>Request Id : </strong> {{serviceData.request_id}}<br>
+		<strong>Name : </strong> {{serviceData.name}}<br>
+		<strong>Email : </strong> {{serviceData.email}}<br>
+		<strong>Phone : </strong> {{serviceData.phone}}<br></p>
+		<p><strong>Date of Relocation : </strong> {{serviceData.date}}<br>
+		<strong>Requested for : </strong> {{serviceData.service_for}}</p>
+		<p><strong>AREA : </strong><br>
+		<strong>From : </strong> {{serviceData.from}}<br>
+		<strong>To : </strong> {{serviceData.city}}<br>
+		<strong>Prefered Location : </strong> {{serviceData.loca1}}, {{serviceData.loca2}}, {{serviceData.loca3}}</p> 
+		<p><strong>PROPERTY DETAILS:</strong><br>
+		<strong>Budget : </strong> {{serviceData.price}}<br>	
+		<strong>BHK : </strong> {{serviceData.bhk}}<br>
+		<strong>Furnishing : </strong> {{serviceData.furnishing}}<br>
+		</p>
+		<hr>
+		<!-- <button class="btn btn-secondary btn-bordered" (click)="trackStatus()">Track Status</button> -->
+		<p>{{msg}}</p>
+		<h4><strong>Scheduled Properties</strong></h4>
+		<div class="row">
+			<div *ngFor="let p of properties" class="col-lg-4 col-xs-12">
+				<div class="card">
+				    <agm-map [latitude]="p.prop_details.lat" [longitude]="p.prop_details.lon">
+					  <agm-marker [latitude]="p.prop_details.lat" [longitude]="p.prop_details.lon"></agm-marker>
+					</agm-map>
+				    <div class="card-block">
+				        <h4 class="card-title">{{p.prop_details.prop_name}}, <small>{{p.prop_details.area}}| {{p.prop_details.city}}</small></h4>
+				        <p class="card-text">
+				        	{{p.prop_details.configuration}} | {{p.prop_details.totalArea}} Sq feet<br/>
+				        	Rent - Rs {{p.prop_details.m_rent}} | Maintenance - {{p.prop_details.maintainance}}
+				        </p>
+				        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(p)">View Details</a>
+				    </div>
+				    <div class="card-footer">
+				    	<p class="card-text"><strong> Visit date & time: </strong>{{p.date}},  {{p.from}}</p>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<!-- <hr>
+		<h4><strong>Track Status</strong></h4> -->
+
+	</div>
+</div>
+<!-- sidebar -->
+<div id="mySidenav" class="mysidebar">
+	<div class="animate property-details" *ngIf="sidebarDataProp">
+		<div class="card">
+			<!-- <div class="row">
+				<div class="col-lg-4 text-center">
+					<a href="">Property</a>
+				</div>
+				<div class="col-lg-4 text-center">
+					<a href="">RM</a>
+				</div>
+				<div class="col-lg-4 text-center">
+					<a href="">Schedule</a>
+				</div>
+			</div> -->			
+			<div class="card-header card-default">
+				<div class="card-title">
+					<div class="row">
+						<div class="col-lg-10">
+							<h5><strong>Community Name |  {{sidebarDataProp.area}}, {{sidebarDataProp.city}}</strong></h5>							
+						</div>
+						<div class="col-lg-2">
+							<button style="float:right;" class="btn btn-sm btn-secondary btn-bordered closebtn" (click)="closeNav()">Close</button>							
+						</div>
+					</div>
+				</div>
+			</div>				
+			<div class="card-block property">
+				<div class="card-img-top">
+					<ngb-carousel interval="5000">
+	                    <ng-template ngbSlide *ngFor="let p of sidebarDataProp.picurl">
+	                        <img src="{{p}}" height="200px" width="400px">
+	                    </ng-template>
+	                </ngb-carousel>
+	            </div>
+                <p class="card-text">
+                	<strong>{{sidebarDataProp.prop_name}}</strong>
+                </p> 
+                <p class="card-text text-muted">
+                	<span class="text-right" style="float:right">
+                		<strong>Rent -</strong> Rs {{sidebarDataProp.m_rent}}<br>
+	                	<strong>Maintenance -</strong> Rs {{sidebarDataProp.maintenance}}<br/>
+	                	<strong>Security Deposit -</strong> Rs {{sidebarDataProp.advance}}  
+                	</span>		      
+                	{{sidebarDataProp.configuration}} | {{sidebarDataProp.totalArea}}<br/>
+                	{{sidebarDataProp.fur}}, {{sidebarDataProp.facing}} Facing<br>   
+                	Available for {{sidebarDataProp.rent_to}}       	
+                </p>
+                <p class="card-text text-muted">
+                	<button class="btn btn-default" style="float:right" (click)="showMap = !showMap">View on Map</button>                	
+                	{{sidebarDataProp.loca}}	
+                </p>
+                <div *ngIf="showMap">
+                	<agm-map [latitude]="sidebarDataProp.lat" [longitude]="sidebarDataProp.lon">
+					  <agm-marker [latitude]="sidebarDataProp.lat" [longitude]="sidebarDataProp.lon"></agm-marker>
+					</agm-map>
+                </div>
+                <hr>
+                <h5 class="card-text"><small>Ammenities</small></h5>
+                <div class="row">
+                	<div class="col-lg-4 col-xs-4" *ngFor="let a of amn">
+                		<img src="{{a['icn']}}" height="80px" width="100px;">
+                	</div>
+                </div>
+                <hr>
+                <h5 class="card-text"><small>Features / Facilities</small></h5>
+                <div class="row">
+                	<div class="col-lg-3">
+                		<p class="card-text text-muted">
+                			Bedrooms : {{sidebarDataProp.bedrooms}}
+                		</p>
+                	</div>
+                	<div class="col-lg-3">
+                		<p class="card-text text-muted">
+                			Bathroom: {{sidebarDataProp.bathrooms}}
+                		</p>
+                	</div>
+                	<div class="col-lg-3">
+                		<p class="card-text text-muted">
+                			Balconies: {{sidebarDataProp.balconies}}
+                		</p>
+                	</div>
+                	<div class="col-lg-3">
+                		<p class="card-text text-muted">
+                			Fridge: 1
+                		</p>
+                	</div>
+                	<div class="col-lg-3">
+                		<p class="card-text text-muted">
+                			TV: 1
+                		</p>
+                	</div>
+                </div>
+               <!--  <hr>
+				<div class="card-block rmdetail">
+					<h5 class="card-text"><small>RM Details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Name:</strong> {{sidebarData.name}}<br>
+						<strong>Email:</strong> {{sidebarData.rm_id}}<br>
+						<strong>Contact:</strong> {{sidebarData.phone}}<br>
+					</p>
+					<p class="card-text text-muted">
+						<strong>Today's Visit:</strong> 3<br>
+						<strong>Total Visit:</strong> 10<br>
+						<strong>Area:</strong> {{sidebarData.rm_area}}
+					</p>
+					<h5 class="card-text"><small>Visit details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Date and Time :</strong> {{sidebarData.date}} at {{sidebarData.time}}<br/>
+						<strong>Status :</strong> {{sidebarData.status}}<br/>
+						<span class="text-success">{{sidebarData.interest}}</span>
+					</p>
+					<p class="card-text text-muted"><strong> Feedback: </strong>{{sidebarData.feed}}</p>
+				</div> -->
+			</div>			
+		</div>
+	</div>
+</div>

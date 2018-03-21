@@ -1,0 +1,48 @@
+<div class="animate card crm-row">
+		<div class="card-header card-primary">
+		<div class="card-title">
+			<strong>User - </strong>Property
+		</div>		
+	</div>
+	<div class="card-block">
+		<!-- <div type="button" class="btn btn-secondary">
+			<a (click)="mover = !mover">Property</a>
+		</div>
+		<div type="button" class="btn btn-secondary">
+			<a (click)="!mover  = mover">Movers</a>
+		</div> -->
+        <div class="form-group">
+            <label>
+                <input type="radio" name="classification" value="prop" #Option1  [(ngModel)]="classification">
+                <span><strong>House Rentals</strong></span>
+            </label>
+            <label>
+                <input  type="radio" name="classification" value="mover" #Option2 [(ngModel)]="classification">
+                <span><strong>Packers & Movers</strong></span>
+            </label>
+        </div>
+		<div class="row" style="padding-top:10px">
+    		<div class="col-lg-2 col-sm-6">
+    			<input *ngIf="classification =='prop'" #search class="form-control search" type="text" placeholder="Search..." (keyup)="onSearchProp(search.value)">
+                <input *ngIf="classification =='mover'" #search1 class="form-control search" type="text" placeholder="Search..." (keyup)="onSearchMover(search1.value)">
+    		</div>
+    		<!-- <div class="col-lg-2 col-sm-2">
+    			<button class="btn btn-secondary" (click)="reload()">Refresh</button>
+    		</div> -->
+    		<div class="col-lg-4 col-sm-6">
+    			<button class="btn btn-secondary" (click)="exportToExcel()">export as csv</button>
+    		</div>
+    		<div class="col-lg-6 col-sm-12">
+    			<div class="input-group" style="float:right;width:initial ! important">
+    				<label style="margin: 10px;">Filter By date</label>
+                    <input name="date" class="form-control" placeholder="From" [theme]="'dp-material'" [(ngModel)]="selectedDate1" [dpDayPicker]="config" />
+                   <!--  <span class="input-group-addon"><i class="fa fa-calendar"></i></span> -->
+                    <input name="date" class="form-control" placeholder="To" [theme]="'dp-material'" [(ngModel)]="selectedDate2" [dpDayPicker]="config" />
+                    <span class="input-group-addon" (click)="filterbyDate(classification)"><i class="fa fa-calendar"></i></span>
+                </div>
+    		</div>
+    	</div>          	
+        <ng2-smart-table *ngIf="classification =='prop'" [settings]="prop_settings" [source]="prop_source" (custom)="onCustom($event,'prop')"></ng2-smart-table>
+        <ng2-smart-table *ngIf="classification =='mover'" [settings]="mover_settings" [source]="mover_source" (custom)="onCustom($event,'mover')"></ng2-smart-table>
+	</div>
+</div>
