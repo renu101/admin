@@ -1,4 +1,4 @@
-#sidebar div.side-widgets {
+/*#sidebar div.side-widgets {
       margin-left: 0px ! important;
 }
 .sidenav{
@@ -9,4 +9,23 @@
 			}
 		}
 	}
+}*/
+#sidebar div.side-menu {
+    width: 100%;
+}
+#sidebar div.side-menu .menu-body {
+    width: initial;
+    margin-top: -2px;
+}
+#sidebar div.side-menu .menu-body ul.sidenav li a{
+	width:100%;
+	text-align: left;
+	padding-left: 20px;
+}
+#sidebar div.side-menu .menu-body ul.sidenav li ul.nested-dropdown{
+	left : 100px;
+	z-index: 1;
+}
+#sidebar div.side-menu .menu-body ul.sidenav li.sidemenu-header{
+	padding-left: 20px;
 }

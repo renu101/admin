@@ -1,229 +1,230 @@
-<h1 class="text-center"><small>House Rentals</small></h1>
-<div class="container">
-	<div class="head-container">
-		<h4>Wish-List</h4>	
-		<div class="row">
-			<div *ngFor="let w of wish" class="col-lg-4 col-xs-12">
-				<div class="card">
-				    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
-				    <div class="card-block">
-				        <h4 class="card-title">{{w.prop_name}}, <small>{{w.area}}| {{w.city}}</small></h4>
-				        <p class="card-text">
-				        	{{w.configuration}} | {{w.totalArea}} Sq feet<br/>
-				        	Rent - Rs {{w.m_rent}} | Maintenance - {{w.maintenance}}
-				        </p>
-				        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(w,'wish')">View Details</a>
-				    </div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center">
-			<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Show similar properties</a>
-		</div>
-	</div>
-	<hr>
-	<div class="head-container">
-		<h4 style="margin-top: 10px;">Visit-List</h4>
-		<div class="row">
-			<div *ngFor="let v of visit" class="col-lg-4 col-xs-12">
-				<div class="card">
-				    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
-				    <div class="card-block">
-				        <h4 class="card-title">{{v.prop_name}}, <small>{{v.area}}| {{v.city}}</small></h4>
-				        <p class="card-text">
-				        	{{v.configuration}} | {{v.totalArea}} Sq feet<br/>
-				        	Rent - Rs {{v.m_rent}} | Maintenance - {{v.maintenance}}</p>
-				        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(v,'visit')">View Details</a>
-				    </div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center">
-			<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Show similar properties</a>
-		</div>
-	</div>
-	<hr>
-	<div class="head-container">
-		<h4 style="margin-top: 10px;">Schedule property to visit</h4>
-		<div class="row">
-			<div *ngFor="let sch of schedule" class="col-lg-4 col-xs-12">
-				<div class="card">
-				    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
-				    <div class="card-block">
-				        <h4 class="card-title">{{sch.prop_name}}, <small>{{sch.area}}| {{sch.city}}</small></h4>
-				        <p class="card-text">
-				        	{{sch.configuration}} | {{sch.totalArea}} Sq feet<br/>
-				        	Rent - Rs {{sch.m_rent}} | Maintenance - {{sch.maintenance}}</p>
-				        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(sch,'sch'); showDetails = !showDetails">View Details</a>
-				    </div>
-				</div>
-			</div>
-		</div>
-		<div class="text-center">
-			<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Schedule a new property</a>
-		</div>
-	</div>
-	<hr>
-	<div class="head-container" *ngIf="confirm">
-		<h4>Confirmed Property</h4>
-		<div class="row">
-			<div class="col-lg-8 col-xs-12">
-				<div class="card">
-		            <div class="card-block">
-		            	<div class="row">
-		            		<div class="col-lg-6 col-xs-12">
-		            			<p>
-		            				<strong>{{confirm.prop_name}} |</strong> {{confirm.area}}, {{confirm.city}}<br>
-		            				{{confirm.configuration}}, {{confirm.totalArea}} Sq feet<br>
-		            				Rent - Rs {{confirm.m_rent}} | Maintenance - Rs {{confirm.maintenance}}<br>
-		            			</p>
-		            		</div>
-		            		<div class="col-lg-6 col-xs-12">
-		            			<ngb-carousel interval="5000">
-				                    <ng-template ngbSlide *ngFor="let p of confirm.picurl">
-				                        <img src="{{p}}" height="200px" width="400px">
-				                    </ng-template>
-				                </ngb-carousel>
-		            		</div>
-		            	</div>		                
-		            </div>
-		        </div>
-			</div>
-			<div class="col-lg-4 col-xs-12">
-				<div class="card">
-					<agm-map [latitude]="lat" [longitude]="lng">
-					  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-					</agm-map>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-</div>
-<!-- sidebar -->
-<div id="mySidenav" class="mysidebar">
-	<div class="animate property-details" *ngIf="sidebarData">
-		<div class="card">			
-			<div class="card-header card-default mysidebar-header">
-				<div class="card-title">
-					<div class="row">
-						<div class="col-lg-10">
-							<p><strong> Community Name |  {{sidebarData.area}}, {{sidebarData.city}}</strong></p>	
-						</div>
-						<div class="col-lg-2">
-							<button style="float:right;" class="btn btn-sm btn-secondary btn-bordered closebtn" (click)="closeNav()">Close</button>				
-						</div>
+
+	<h1 class="text-center"><small>House Rentals</small></h1>
+	<div class="container">
+		<div class="head-container">
+			<h4>Wish-List</h4>	
+			<div class="row">
+				<div *ngFor="let w of wish" class="col-lg-4 col-xs-12">
+					<div class="card">
+					    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
+					    <div class="card-block">
+					        <h4 class="card-title">{{w.prop_name}}, <small>{{w.area}}| {{w.city}}</small></h4>
+					        <p class="card-text">
+					        	{{w.configuration}} | {{w.totalArea}} Sq feet<br/>
+					        	Rent - Rs {{w.m_rent}} | Maintenance - {{w.maintenance}}
+					        </p>
+					        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(w,'wish')">View Details</a>
+					    </div>
 					</div>
 				</div>
-			</div>	
-			<!-- <div class="row headbar">
-				<div class="col-lg-4 text-center head-item">
-					<a href="Javascript:void(0)" (click)="scrollToTop(property)">Property</a>
-				</div>
-				<div class="col-lg-4 text-center head-item">
-					<a href="Javascript:void(0)" [scrollTo]="rmdetail">RM</a>
-				</div>
-				<div class="col-lg-4 text-center head-item">
-					<a href="">Schedule</a>
-				</div>
-			</div>	 -->		
-			<div class="card-block" #property>
-				<ngb-carousel interval="5000">
-                    <ng-template ngbSlide *ngFor="let p of sidebarData.picurl">
-                        <img src="{{p}}" height="200px" width="400px">
-                    </ng-template>
-                </ngb-carousel>
-                <h5 class="card-text head-text">
-                	<strong>{{sidebarData.prop_name}}</strong>
-                </h5>
-                <p class="card-text text-muted">
-                	<span class="text-right" style="float:right">
-                		<strong>Rent -</strong> Rs {{sidebarData.m_rent}}<br>
-	                	<strong>Maintenance -</strong> Rs {{sidebarData.maintenance}}<br/>
-	                	<strong>Security Deposit -</strong> Rs {{sidebarData.advance}}  
-                	</span>		      
-                	{{sidebarData.configuration}} | {{sidebarData.totalArea}}<br/>
-                	{{sidebarData.fur}}, {{sidebarData.facing}} Facing<br>   
-                	Available for {{sidebarData.rent_to}}       	
-                </p>
-                <p class="card-text text-muted">
-                	<button class="btn btn-default" style="float:right" (click)="showMap = !showMap">View on Map</button>                	
-                	{{sidebarData.loca}}	
-                </p>
-                <div *ngIf="showMap">
-                	<agm-map [latitude]="sidebarData.lat" [longitude]="sidebarData.lon">
-					  <agm-marker [latitude]="sidebarData.lat" [longitude]="sidebarData.lon"></agm-marker>
-					</agm-map>
-                </div>
-                <hr>
-                <h5 class="card-text"><small>Ammenities</small></h5>
-                <div class="row">
-                	<div class="col-lg-4 col-xs-4" *ngFor="let a of amn">
-                		<img src="{{a['icn']}}" height="80px" width="100px;">
-                	</div>
-                	<!-- <div class="col-lg-4 col-xs-4">
-                		<img src="{{a['icn']}}" height="80px" width="100px;">
-                	</div>
-                	<div class="col-lg-4 col-xs-4">
-                		<img src="{{a['icn']}}" height="80px" width="100px;">
-                	</div>
-                	<div class="col-lg-4 col-xs-4">
-                		<img src="{{a['icn']}}" height="80px" width="100px;">
-                	</div> -->
-                </div>
-                <hr>
-                <h5 class="card-text"><small>Features / Facilities</small></h5>
-                <div class="row">
-                	<div class="col-lg-3">
-                		<p class="card-text text-muted">
-                			Bedrooms : {{sidebarData.bedrooms}}
-                		</p>
-                	</div>
-                	<div class="col-lg-3">
-                		<p class="card-text text-muted">
-                			Bathroom: {{sidebarData.bathrooms}}
-                		</p>
-                	</div>
-                	<div class="col-lg-3">
-                		<p class="card-text text-muted">
-                			Balconies: {{sidebarData.balconies}}
-                		</p>
-                	</div>
-                	<div class="col-lg-3">
-                		<p class="card-text text-muted">
-                			Fridge: 1
-                		</p>
-                	</div>
-                	<div class="col-lg-3">
-                		<p class="card-text text-muted">
-                			TV: 1
-                		</p>
-                	</div>
-                </div><hr>
 			</div>
-			<div class="card-block" #rmdetail *ngIf="showDetails">
-				<h5 class="card-text"><small>RM Details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Name:</strong> {{sidebarData.name}}<br>
-					<strong>Email:</strong> {{sidebarData.rm_id}}<br>
-					<strong>Contact:</strong> {{sidebarData.phone}}<br>
-				</p>
-				<p class="card-text text-muted">
-					<strong>Today's Visit:</strong> 3<br>
-					<strong>Total Visit:</strong> 10<br>
-					<strong>Area:</strong> {{sidebarData.rm_area}}
-				</p>
-				<h5 class="card-text"><small>Visit details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Date and Time :</strong> {{sidebarData.date}} at {{sidebarData.time}}<br/>
-					<strong>Status :</strong> {{sidebarData.status}}<br/>
-					<span class="text-success">{{sidebarData.interest}}</span>
-				</p>
-				<p class="card-text text-muted"><strong> Feedback: </strong>{{sidebarData.feed}}</p>
+			<div class="text-center">
+				<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Show similar properties</a>
+			</div>
+		</div>
+		<hr>
+		<div class="head-container">
+			<h4 style="margin-top: 10px;">Visit-List</h4>
+			<div class="row">
+				<div *ngFor="let v of visit" class="col-lg-4 col-xs-12">
+					<div class="card">
+					    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
+					    <div class="card-block">
+					        <h4 class="card-title">{{v.prop_name}}, <small>{{v.area}}| {{v.city}}</small></h4>
+					        <p class="card-text">
+					        	{{v.configuration}} | {{v.totalArea}} Sq feet<br/>
+					        	Rent - Rs {{v.m_rent}} | Maintenance - {{v.maintenance}}</p>
+					        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(v,'visit')">View Details</a>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Show similar properties</a>
+			</div>
+		</div>
+		<hr>
+		<div class="head-container">
+			<h4 style="margin-top: 10px;">Schedule property to visit</h4>
+			<div class="row">
+				<div *ngFor="let sch of schedule" class="col-lg-4 col-xs-12">
+					<div class="card">
+					    <img class="card-img-top img-responsive" width="100%" src="http://line25.com/wp-content/uploads/2013/nature/header.jpg" alt="Image">
+					    <div class="card-block">
+					        <h4 class="card-title">{{sch.prop_name}}, <small>{{sch.area}}| {{sch.city}}</small></h4>
+					        <p class="card-text">
+					        	{{sch.configuration}} | {{sch.totalArea}} Sq feet<br/>
+					        	Rent - Rs {{sch.m_rent}} | Maintenance - {{sch.maintenance}}</p>
+					        <a href="Javascript:void(0);" class="btn btn-secondary" (click)="openNav(sch,'sch');">View Details</a>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<a href="https://www.goflytta.com" class="btn btn-warning btn-rounded">Schedule a new property</a>
+			</div>
+		</div>
+		<hr>
+		<div class="head-container" *ngIf="confirm">
+			<h4>Confirmed Property</h4>
+			<div class="row">
+				<div class="col-lg-8 col-xs-12">
+					<div class="card">
+			            <div class="card-block">
+			            	<div class="row">
+			            		<div class="col-lg-6 col-xs-12">
+			            			<p>
+			            				<strong>{{confirm.prop_name}} |</strong> {{confirm.area}}, {{confirm.city}}<br>
+			            				{{confirm.configuration}}, {{confirm.totalArea}} Sq feet<br>
+			            				Rent - Rs {{confirm.m_rent}} | Maintenance - Rs {{confirm.maintenance}}<br>
+			            			</p>
+			            		</div>
+			            		<div class="col-lg-6 col-xs-12">
+			            			<ngb-carousel interval="5000">
+					                    <ng-template ngbSlide *ngFor="let p of confirm.picurl">
+					                        <img src="{{p}}" height="200px" width="400px">
+					                    </ng-template>
+					                </ngb-carousel>
+			            		</div>
+			            	</div>		                
+			            </div>
+			        </div>
+				</div>
+				<div class="col-lg-4 col-xs-12">
+					<div class="card">
+						<agm-map [latitude]="lat" [longitude]="lng">
+						  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+						</agm-map>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- sidebar -->
+	<div id="mySidenav" class="mysidebar">
+		<div class="animate property-details" *ngIf="sidebarData">
+			<div class="card">			
+				<div class="card-header card-default mysidebar-header">
+					<div class="card-title">
+						<div class="row">
+							<div class="col-lg-10">
+								<p><strong> Community Name |  {{sidebarData.area}}, {{sidebarData.city}}</strong></p>	
+							</div>
+							<div class="col-lg-2">
+								<button style="float:right;" class="btn btn-sm btn-secondary btn-bordered closebtn" (click)="closeNav()">Close</button>				
+							</div>
+						</div>
+					</div>
+				</div>	
+				<!-- <div class="row headbar">
+					<div class="col-lg-4 text-center head-item">
+						<a href="Javascript:void(0)" (click)="scrollToTop(property)">Property</a>
+					</div>
+					<div class="col-lg-4 text-center head-item">
+						<a href="Javascript:void(0)" [scrollTo]="rmdetail">RM</a>
+					</div>
+					<div class="col-lg-4 text-center head-item">
+						<a href="">Schedule</a>
+					</div>
+				</div>	 -->		
+				<div class="card-block" #property>
+					<ngb-carousel interval="5000">
+	                    <ng-template ngbSlide *ngFor="let p of sidebarData.picurl">
+	                        <img src="{{p}}" height="200px" width="400px">
+	                    </ng-template>
+	                </ngb-carousel>
+	                <h5 class="card-text head-text">
+	                	<strong>{{sidebarData.prop_name}}</strong>
+	                </h5>
+	                <p class="card-text text-muted">
+	                	<span class="text-right" style="float:right">
+	                		<strong>Rent -</strong> Rs {{sidebarData.m_rent}}<br>
+		                	<strong>Maintenance -</strong> Rs {{sidebarData.maintenance}}<br/>
+		                	<strong>Security Deposit -</strong> Rs {{sidebarData.advance}}  
+	                	</span>		      
+	                	{{sidebarData.configuration}} | {{sidebarData.totalArea}}<br/>
+	                	{{sidebarData.fur}}, {{sidebarData.facing}} Facing<br>   
+	                	Available for {{sidebarData.rent_to}}       	
+	                </p>
+	                <p class="card-text text-muted">
+	                	<button class="btn btn-default" style="float:right" (click)="showMap = !showMap">View on Map</button>                	
+	                	{{sidebarData.loca}}	
+	                </p>
+	                <div *ngIf="showMap">
+	                	<agm-map [latitude]="sidebarData.lat" [longitude]="sidebarData.lon">
+						  <agm-marker [latitude]="sidebarData.lat" [longitude]="sidebarData.lon"></agm-marker>
+						</agm-map>
+	                </div>
+	                <hr>
+	                <h5 class="card-text"><small>Ammenities</small></h5>
+	                <div class="row">
+	                	<div class="col-lg-4 col-xs-4" *ngFor="let a of amn">
+	                		<img src="{{a['icn']}}" height="80px" width="100px;">
+	                	</div>
+	                	<!-- <div class="col-lg-4 col-xs-4">
+	                		<img src="{{a['icn']}}" height="80px" width="100px;">
+	                	</div>
+	                	<div class="col-lg-4 col-xs-4">
+	                		<img src="{{a['icn']}}" height="80px" width="100px;">
+	                	</div>
+	                	<div class="col-lg-4 col-xs-4">
+	                		<img src="{{a['icn']}}" height="80px" width="100px;">
+	                	</div> -->
+	                </div>
+	                <hr>
+	                <h5 class="card-text"><small>Features / Facilities</small></h5>
+	                <div class="row">
+	                	<div class="col-lg-3">
+	                		<p class="card-text text-muted">
+	                			Bedrooms : {{sidebarData.bedrooms}}
+	                		</p>
+	                	</div>
+	                	<div class="col-lg-3">
+	                		<p class="card-text text-muted">
+	                			Bathroom: {{sidebarData.bathrooms}}
+	                		</p>
+	                	</div>
+	                	<div class="col-lg-3">
+	                		<p class="card-text text-muted">
+	                			Balconies: {{sidebarData.balconies}}
+	                		</p>
+	                	</div>
+	                	<div class="col-lg-3">
+	                		<p class="card-text text-muted">
+	                			Fridge: 1
+	                		</p>
+	                	</div>
+	                	<div class="col-lg-3">
+	                		<p class="card-text text-muted">
+	                			TV: 1
+	                		</p>
+	                	</div>
+	                </div><hr>
+				</div>
+				<div class="card-block" #rmdetail *ngIf="showDetails">
+					<h5 class="card-text"><small>RM Details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Name:</strong> {{sidebarData.name}}<br>
+						<strong>Email:</strong> {{sidebarData.rm_id}}<br>
+						<strong>Contact:</strong> {{sidebarData.phone}}<br>
+					</p>
+					<p class="card-text text-muted">
+						<strong>Today's Visit:</strong> 3<br>
+						<strong>Total Visit:</strong> 10<br>
+						<strong>Area:</strong> {{sidebarData.rm_area}}
+					</p>
+					<h5 class="card-text"><small>Visit details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Date and Time :</strong> {{sidebarData.date}} at {{sidebarData.time}}<br/>
+						<strong>Status :</strong> {{sidebarData.status}}<br/>
+						<span class="text-success">{{sidebarData.interest}}</span>
+					</p>
+					<p class="card-text text-muted"><strong> Feedback: </strong>{{sidebarData.feed}}</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
 

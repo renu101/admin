@@ -1,190 +1,192 @@
-<h1 class="text-center"><small>Packers and Movers</small></h1>
-<div class="container">
-	<div class="head-container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header">
-						<h4 class="card-title"><strong>Origin Location</strong></h4>		
+
+	<h1 class="text-center"><small>Packers and Movers</small></h1>
+	<div class="container">
+		<div class="head-container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><strong>Origin Location</strong></h4>		
+						</div>
+						<div class="card-block text-muted mover-card" *ngIf="mover">
+							<p class="card-text mover-addr">
+								<strong>{{mover.value.Current_place.curr_area}}, {{mover.value.Current_place.curr_city}}</strong><br>
+								{{mover.value.Current_place.addr}}
+							</p>
+							<hr>
+							<h5><small>Apartment Info</small></h5>
+							<strong>Lift:</strong>{{mover.value.Current_place.Lift}}<br>
+							<strong>BHK:</strong>{{mover.value.Current_place.BHK}}<br>
+						</div>
 					</div>
-					<div class="card-block text-muted mover-card" *ngIf="mover">
-						<p class="card-text mover-addr">
-							<strong>{{mover.value.Current_place.curr_area}}, {{mover.value.Current_place.curr_city}}</strong><br>
-							{{mover.value.Current_place.addr}}
-						</p>
-						<hr>
-						<h5><small>Apartment Info</small></h5>
-						<strong>Lift:</strong>{{mover.value.Current_place.Lift}}<br>
-						<strong>BHK:</strong>{{mover.value.Current_place.BHK}}<br>
+				</div>
+				<div class="col-lg-6">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title"><strong>Destination Location</strong></h4>		
+						</div>
+						<div class="card-block text-muted mover-card" *ngIf="mover">
+							<p class="card-text mover-addr">
+								<strong>{{mover.value.Destination_place.dest_area}}, {{mover.value.Destination_place.dest_area}}</strong><br>
+								{{mover.value.Destination_place.addr}}
+							</p>
+							<hr>
+							<h5><small>Apartment Info</small></h5>
+							<strong>Lift:</strong>{{mover.value.Destination_place.Lift}}<br>
+							<strong>BHK:</strong>{{mover.value.Destination_place.BHK}}<br>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6">
-				<div class="card">
-					<div class="card-header">
-						<h4 class="card-title"><strong>Destination Location</strong></h4>		
-					</div>
-					<div class="card-block text-muted mover-card" *ngIf="mover">
-						<p class="card-text mover-addr">
-							<strong>{{mover.value.Destination_place.dest_area}}, {{mover.value.Destination_place.dest_area}}</strong><br>
-							{{mover.value.Destination_place.addr}}
-						</p>
-						<hr>
-						<h5><small>Apartment Info</small></h5>
-						<strong>Lift:</strong>{{mover.value.Destination_place.Lift}}<br>
-						<strong>BHK:</strong>{{mover.value.Destination_place.BHK}}<br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-block">
-				<div class="card-text text-muted" *ngIf="mover">
-					<strong>Schedule Inspection Date: </strong>
-					<p class="card-text">{{mover.value.date.s_date}}</p>
-					<strong>Relocation Date: </strong>
-					<p class="card-text">{{mover.value.date.m_date}}</p>
-				</div>
-				<hr>
-				<button class="btn btn-secondary btn-bordered" (click)="showitemlist()">Itemlist</button> <a href="javascript:void(0)" (click)="exportToExcel()">Export as Excel</a> <br>
-				<!-- <hr>
-				<button class="btn btn-secondary btn-bordered" (click)="visitStatus()">Inspection Status</button>	 -->		
-				
-				
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-header">
-				<h4 class="card-title"><strong>Inspection Status</strong></h4>	
-			</div>
-			<div class="card-block rmdetail" *ngIf="inspectionData">
-				<h5 class="card-text"><small>RM Details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Name:</strong> {{inspectionData.name}}<br>
-					<strong>Email:</strong> {{inspectionData.rm_id}}<br>
-					<strong>Contact:</strong> {{inspectionData.phone}}<br>
-				</p>
-				<p class="card-text text-muted">
-					<!-- <strong>Today's Visit:</strong> 3<br>
-					<strong>Total Visit:</strong> 10<br> -->
-					<strong>Area:</strong> {{inspectionData.area}}
-				</p>
-				<h5 class="card-text"><small>Visit details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Date and Time :</strong> {{mover.value.date.s_date}}<br/>
-					<strong>Status :</strong> {{inspectionData.status_val}}<br/>
-					<span class="text-success">{{inspectionData.interest}}</span>
-				</p>
-				<hr>
-				<h5 class="card-text"><small>Estimated Amount:</small></h5>
-				<p class="card-text text-muted">
-					<strong>Packing:</strong> Rs {{mover.value.Estimated_charge.packing}}<br>
-		            <strong>Loading:</strong> Rs {{mover.value.Estimated_charge.loading}}<br>
-		            <strong>Unloading:</strong> Rs {{mover.value.Estimated_charge.unloading}}<br>
-		            <strong>Unpacking:</strong> Rs {{mover.value.Estimated_charge.unpacking}}<br>
-		            <!-- <strong>Lift_o:</strong> Rs {{mover.value.Estimated_charge.lift_o}}<br>
-		            <strong>Lift_d:</strong> Rs {{mover.value.Estimated_charge.lift_d}}<br> -->
-		            <strong>Sub_total:</strong> {{mover.value.Estimated_charge.sub_total}}<br>
-		            <strong>Moving:</strong> {{mover.value.Estimated_charge.moving}}<br>
-		            <strong>Insurance:</strong> Rs {{mover.value.Estimated_charge.insurance}}<br>
-		            <strong>Tax:</strong> Rs {{mover.value.Estimated_charge.tax}}<br>
-		            <strong>Total:</strong> Rs {{mover.value.Estimated_charge.total}}
-				</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-block">
-				<div class="card-text">
-					<h5>Track relocation</h5>
-				</div>
-				<div class="card-text">
-					<agm-map *ngIf="inspectionData" [latitude]="inspectionData.reach.lat" [longitude]="inspectionData.reach.lon">
-						<agm-polyline>
-			           		<agm-polyline-point *ngFor="let points of markers" [latitude]="points.latitude" [longitude]="points.longitude">
-			           		</agm-polyline-point>
-			        	</agm-polyline>
-					</agm-map>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Inspectionsidebar -->
-<div class="mysidebar" id="inspectionSidebar">
-	<div class="animate mover-sch">
-		<div class="card mysidebar-card">
-			<div class="card-header">
-				<div class="row">
-					<div class="col-lg-10">
-						<p><strong>Item List</strong></p>							
-					</div>
-					<div class="col-lg-2">
-						<button style="float:right;" class="btn btn-sm btn-secondary btn-bordered closebtn" (click)="closeNav()">Close</button>							
-					</div>
-				</div>
-			</div>
-			<div class="card-block">
-				<div class="row" *ngFor="let item of itemlist">
-					<div class="col-lg-6">
-						<img src="assets/images/slider0.jpg" height="100px" width="100px;">
-					</div>
-					<div class="col-lg-6">
-						<p class="card-text">
-							<strong>{{item.Item}}</strong> - {{item.Quantity}}<br>
-							<strong>Dismantlable -</strong> {{item.Dismantlable}}<br>
-							Description - 1 damaged
-						</p>
+			<div class="card">
+				<div class="card-block">
+					<div class="card-text text-muted" *ngIf="mover">
+						<strong>Schedule Inspection Date: </strong>
+						<p class="card-text">{{mover.value.date.s_date}}</p>
+						<strong>Relocation Date: </strong>
+						<p class="card-text">{{mover.value.date.m_date}}</p>
 					</div>
 					<hr>
+					<button class="btn btn-secondary btn-bordered" (click)="showitemlist()">Itemlist</button> <a href="javascript:void(0)" (click)="exportToExcel()">Export as Excel</a> <br>
+					<!-- <hr>
+					<button class="btn btn-secondary btn-bordered" (click)="visitStatus()">Inspection Status</button>	 -->		
+					
+					
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h4 class="card-title"><strong>Inspection Status</strong></h4>	
+				</div>
+				<div class="card-block rmdetail" *ngIf="inspectionData">
+					<h5 class="card-text"><small>RM Details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Name:</strong> {{inspectionData.name}}<br>
+						<strong>Email:</strong> {{inspectionData.rm_id}}<br>
+						<strong>Contact:</strong> {{inspectionData.phone}}<br>
+					</p>
+					<p class="card-text text-muted">
+						<!-- <strong>Today's Visit:</strong> 3<br>
+						<strong>Total Visit:</strong> 10<br> -->
+						<strong>Area:</strong> {{inspectionData.area}}
+					</p>
+					<h5 class="card-text"><small>Visit details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Date and Time :</strong> {{mover.value.date.s_date}}<br/>
+						<strong>Status :</strong> {{inspectionData.status_val}}<br/>
+						<span class="text-success">{{inspectionData.interest}}</span>
+					</p>
+					<hr>
+					<h5 class="card-text"><small>Estimated Amount:</small></h5>
+					<p class="card-text text-muted">
+						<strong>Packing:</strong> Rs {{mover.value.Estimated_charge.packing}}<br>
+			            <strong>Loading:</strong> Rs {{mover.value.Estimated_charge.loading}}<br>
+			            <strong>Unloading:</strong> Rs {{mover.value.Estimated_charge.unloading}}<br>
+			            <strong>Unpacking:</strong> Rs {{mover.value.Estimated_charge.unpacking}}<br>
+			            <!-- <strong>Lift_o:</strong> Rs {{mover.value.Estimated_charge.lift_o}}<br>
+			            <strong>Lift_d:</strong> Rs {{mover.value.Estimated_charge.lift_d}}<br> -->
+			            <strong>Sub_total:</strong> {{mover.value.Estimated_charge.sub_total}}<br>
+			            <strong>Moving:</strong> {{mover.value.Estimated_charge.moving}}<br>
+			            <strong>Insurance:</strong> Rs {{mover.value.Estimated_charge.insurance}}<br>
+			            <strong>Tax:</strong> Rs {{mover.value.Estimated_charge.tax}}<br>
+			            <strong>Total:</strong> Rs {{mover.value.Estimated_charge.total}}
+					</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-block">
+					<div class="card-text">
+						<h5>Track relocation</h5>
+					</div>
+					<div class="card-text">
+						<agm-map *ngIf="inspectionData" [latitude]="inspectionData.reach.lat" [longitude]="inspectionData.reach.lon">
+							<agm-polyline>
+				           		<agm-polyline-point *ngFor="let points of markers" [latitude]="points.latitude" [longitude]="points.longitude">
+				           		</agm-polyline-point>
+				        	</agm-polyline>
+						</agm-map>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-<!-- visitstatus sidebar -->
-<div class="mysidebar" id="visitSidebar">
-	<div class="animate mover-sch">
-		<div class="card">
-			<div class="card-header">
-				<h5><small>Item List</small></h5>
-			</div>
-			<div class="card-block rmdetail" *ngIf="sidebarData">
-				<h5 class="card-text"><small>RM Details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Name:</strong> {{sidebarData.name}}<br>
-					<strong>Email:</strong> {{sidebarData.rm_id}}<br>
-					<strong>Contact:</strong> {{sidebarData.phone}}<br>
-				</p>
-				<p class="card-text text-muted">
-					<!-- <strong>Today's Visit:</strong> 3<br>
-					<strong>Total Visit:</strong> 10<br> -->
-					<strong>Area:</strong> {{sidebarData.area}}
-				</p>
-				<h5 class="card-text"><small>Visit details</small></h5>
-				<p class="card-text text-muted">
-					<strong>Date and Time :</strong> {{sidebarData.date}}<br/>
-					<strong>Status :</strong> {{sidebarData.status}}<br/>
-					<span class="text-success">{{sidebarData.interest}}</span>
-				</p>
-				<hr>
-				<h5 class="card-text"><small>Estimated Amount:</small></h5>
-				<p class="card-text text-muted">
-					<strong>Packing:</strong> Rs {{mover.value.Estimated_charge.packing}}<br>
-		            <strong>Loading:</strong> Rs {{mover.value.Estimated_charge.loading}}<br>
-		            <strong>Unloading:</strong> Rs {{mover.value.Estimated_charge.unloading}}<br>
-		            <strong>Unpacking:</strong> Rs {{mover.value.Estimated_charge.unpacking}}<br>
-		            <strong>Lift_o:</strong> Rs {{mover.value.Estimated_charge.lift_o}}<br>
-		            <strong>Lift_d:</strong> Rs {{mover.value.Estimated_charge.lift_d}}<br>
-		            <strong>Sub_total:</strong> {{mover.value.Estimated_charge.sub_total}}<br>
-		            <strong>Moving:</strong> {{mover.value.Estimated_charge.moving}}<br>
-		            <strong>Insurance:</strong> Rs {{mover.value.Estimated_charge.insurance}}<br>
-		            <strong>Tax:</strong> Rs {{mover.value.Estimated_charge.tax}}<br>
-		            <strong>Total:</strong> Rs {{mover.value.Estimated_charge.total}}
-				</p>
+	<!-- Inspectionsidebar -->
+	<div class="mysidebar" id="inspectionSidebar">
+		<div class="animate mover-sch">
+			<div class="card mysidebar-card">
+				<div class="card-header">
+					<div class="row">
+						<div class="col-lg-10">
+							<p><strong>Item List</strong></p>							
+						</div>
+						<div class="col-lg-2">
+							<button style="float:right;" class="btn btn-sm btn-secondary btn-bordered closebtn" (click)="closeNav()">Close</button>							
+						</div>
+					</div>
+				</div>
+				<div class="card-block">
+					<div class="row" *ngFor="let item of itemlist">
+						<div class="col-lg-6">
+							<img src="assets/images/slider0.jpg" height="100px" width="100px;">
+						</div>
+						<div class="col-lg-6">
+							<p class="card-text">
+								<strong>{{item.Item}}</strong> - {{item.Quantity}}<br>
+								<strong>Dismantlable -</strong> {{item.Dismantlable}}<br>
+								Description - 1 damaged
+							</p>
+						</div>
+						<hr>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
+	<!-- visitstatus sidebar -->
+	<div class="mysidebar" id="visitSidebar">
+		<div class="animate mover-sch">
+			<div class="card">
+				<div class="card-header">
+					<h5><small>Item List</small></h5>
+				</div>
+				<div class="card-block rmdetail" *ngIf="sidebarData">
+					<h5 class="card-text"><small>RM Details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Name:</strong> {{sidebarData.name}}<br>
+						<strong>Email:</strong> {{sidebarData.rm_id}}<br>
+						<strong>Contact:</strong> {{sidebarData.phone}}<br>
+					</p>
+					<p class="card-text text-muted">
+						<!-- <strong>Today's Visit:</strong> 3<br>
+						<strong>Total Visit:</strong> 10<br> -->
+						<strong>Area:</strong> {{sidebarData.area}}
+					</p>
+					<h5 class="card-text"><small>Visit details</small></h5>
+					<p class="card-text text-muted">
+						<strong>Date and Time :</strong> {{sidebarData.date}}<br/>
+						<strong>Status :</strong> {{sidebarData.status}}<br/>
+						<span class="text-success">{{sidebarData.interest}}</span>
+					</p>
+					<hr>
+					<h5 class="card-text"><small>Estimated Amount:</small></h5>
+					<p class="card-text text-muted">
+						<strong>Packing:</strong> Rs {{mover.value.Estimated_charge.packing}}<br>
+			            <strong>Loading:</strong> Rs {{mover.value.Estimated_charge.loading}}<br>
+			            <strong>Unloading:</strong> Rs {{mover.value.Estimated_charge.unloading}}<br>
+			            <strong>Unpacking:</strong> Rs {{mover.value.Estimated_charge.unpacking}}<br>
+			            <strong>Lift_o:</strong> Rs {{mover.value.Estimated_charge.lift_o}}<br>
+			            <strong>Lift_d:</strong> Rs {{mover.value.Estimated_charge.lift_d}}<br>
+			            <strong>Sub_total:</strong> {{mover.value.Estimated_charge.sub_total}}<br>
+			            <strong>Moving:</strong> {{mover.value.Estimated_charge.moving}}<br>
+			            <strong>Insurance:</strong> Rs {{mover.value.Estimated_charge.insurance}}<br>
+			            <strong>Tax:</strong> Rs {{mover.value.Estimated_charge.tax}}<br>
+			            <strong>Total:</strong> Rs {{mover.value.Estimated_charge.total}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 

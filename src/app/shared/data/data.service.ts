@@ -42,7 +42,7 @@ export class DataService {
 
     //get partial property details of given ids
     get_prop(p_data): Observable<string[]> {
-        var url = "http://ec2-13-126-145-241.ap-south-1.compute.amazonaws.com:3013/flytta_api/v0.1/property/multi_id";
+        var url = fldb+"/flytta_api/v0.1/property/multi_id";
         return this.http.post(url,p_data)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
@@ -51,7 +51,7 @@ export class DataService {
 
     //get schedule details
     get_schedule(request_id,type): Observable<string[]> {
-        var url = "http://ec2-13-126-145-241.ap-south-1.compute.amazonaws.com:3013/flytta_api/v0.1/customer_schedule/getvisit/"+request_id+"/"+type;
+        var url = fldb+"/flytta_api/v0.1/customer_schedule/getvisit/"+request_id+"/"+type;
         return this.http.get(url)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
@@ -60,7 +60,7 @@ export class DataService {
 
     //get item list
     get_itemlist(id): Observable<string[]> {
-        var url = "http://ec2-13-126-145-241.ap-south-1.compute.amazonaws.com:3013/flytta_api/v0.1/rmp/itemlist/get/"+id;
+        var url = fldb+"/flytta_api/v0.1/rmp/itemlist/get/"+id;
         return this.http.get(url)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
@@ -111,6 +111,14 @@ export class DataService {
     get_track(): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/rmp/track/FB1Z7IJI01";
         return this.http.get(url)
+        .map((res: Response) => res.json())
+        //              .do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }
+    //suggested property based on request form
+    get_filterbased(p_data): Observable<string[]> {
+        var url = fldb+"/flytta_api/v0.1/portal/property/filterbased";
+        return this.http.post(url,p_data)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);

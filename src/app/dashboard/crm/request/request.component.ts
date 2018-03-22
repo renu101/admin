@@ -100,49 +100,54 @@ export class RequestComponent implements OnInit {
 	}
 
     onSearch(query: string = '') {
-        this.source.setFilter([
-            {
-                field: 'requestId',
-                search: query
-            },
-            {
-                field: 'datetime',
-                search: query
-            },
-            {
-                field: 'name',
-                search: query
-            },
-            {
-                field: 'contact',
-                search: query
-            },
-            {
-                field: 'email',
-                search: query
-            },
-            {
-                field: 'price',
-                search: query
-            },
-            {
-                field: 'bhk',
-                search: query
-            },
-            {
-                field: 'furnishing',
-                search: query
-            },
-            {
-                field: 'service_for',
-                search: query
-            },
-            {
-                field: 'location',
-                search: query
-            }
-        ],false);
-      //  console.log(this.source.filteredAndSorted);
+        if (query === '') {
+
+            this.source.setFilter([]);
+
+        } else {
+            this.source.setFilter([
+                {
+                    field: 'requestId',
+                    search: query
+                },
+                {
+                    field: 'datetime',
+                    search: query
+                },
+                {
+                    field: 'name',
+                    search: query
+                },
+                {
+                    field: 'contact',
+                    search: query
+                },
+                {
+                    field: 'email',
+                    search: query
+                },
+                {
+                    field: 'price',
+                    search: query
+                },
+                {
+                    field: 'bhk',
+                    search: query
+                },
+                {
+                    field: 'furnishing',
+                    search: query
+                },
+                {
+                    field: 'service_for',
+                    search: query
+                },
+                {
+                    field: 'location',
+                    search: query
+                }
+            ],false);
+        }
     }
 
 	get_service_data() {

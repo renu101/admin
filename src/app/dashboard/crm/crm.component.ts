@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DataService} from '../../shared/data';
-import {SearchtextPipe} from '../../searchtext.pipe';
+import { SearchtextPipe} from '../../searchtext.pipe';
 import { Router } from '@angular/router';
 import * as c3 from 'c3';
 

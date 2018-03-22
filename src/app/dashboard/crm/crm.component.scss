@@ -46,3 +46,18 @@ agm-map {
     }
   }
 }
+
+.headbar{
+  height:30px;
+  padding-top:5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  .head-item:hover{
+    background-color: #ECF0F1;
+    border-radius: 3px;
+  }
+}
+
+.head-text{
+  margin-top: 0.5rem;
+}

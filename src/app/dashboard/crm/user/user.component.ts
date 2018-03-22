@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DataService} from '../../../shared/data';
 import { Router } from '@angular/router';
+//import { Subscription } from 'rxjs';
 
 import { AsyncLocalStorage, JSONSchema } from 'angular-async-local-storage';
 import {Angular2Csv}  from 'angular2-csv/Angular2-csv';
@@ -122,6 +123,7 @@ export class UserComponent implements OnInit {
     errorMessage: string;
     prop_source: LocalDataSource;
     mover_source: LocalDataSource;
+  //  busy: Subscription;
   	constructor(public dataService: DataService,
                 protected localStorage: AsyncLocalStorage,
                 protected router : Router,
@@ -218,7 +220,7 @@ export class UserComponent implements OnInit {
     }
  //get user details
  getCustomer() {    
-        this.dataService.get_user()
+    this.dataService.get_user()
         .subscribe(
             names => {
                 this.g_data = names; 

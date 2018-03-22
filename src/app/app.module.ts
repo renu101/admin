@@ -10,7 +10,7 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-
+import {NgBusyModule} from 'ng-busy';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         NgProgressModule.forRoot(),
         NgProgressHttpClientModule,
         AsyncLocalStorageModule,
+        NgBusyModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
