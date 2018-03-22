@@ -197,28 +197,29 @@ export class RequestComponent implements OnInit {
         this.source.load(demo); 
     }
 //export excel
-     exportToExcel() {
+    exportToExcel() {
         var options = { 
             fieldSeparator: ',',
             quoteStrings: '"',
             showLabels: true, 
             showTitle: true,
             useBom: true,
-         //   headers: ['Request Id', 'Datetime', 'Name','Email','Location','Requirements','Wishlist','VisitList','Confirm','Scheduled Property','Requirements']
+            headers: ['Request Id', 'Datetime', 'Name','Contact','Email','Budget','BHK','Furnishing','Service for','Location']
         };
         var dummy_data = this.serviceData;
         var d_data = dummy_data.filter(i=>{
-            for(var j in this.source.filteredAndSorted){
+            for(var j in this.source.filteredAndSorted){    
               return this.source.filteredAndSorted[j]["requestId"]  == i.request_id;  
-          }                
+            }                
         });
         console.log(d_data);
-        new Angular2Csv(dummy_data, 'Rentals',options);
+        new Angular2Csv(d_data, 'Rentals',options);
     }
 //reload the data
     reload(){
         // var all_data = this.source.getAll();
         // console.log(all_data);
         this.source.load(this.source.data);
+        this.source.reset();
     } 
 }

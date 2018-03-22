@@ -1,16 +1,10 @@
 <div class="animate card crm-row">
 		<div class="card-header card-primary">
 		<div class="card-title">
-			<strong>User - </strong>Property
+			<strong>User - </strong><span *ngIf="classification =='prop'">Property</span><span *ngIf="classification =='mover'">Packers & Movers</span>
 		</div>		
 	</div>
 	<div class="card-block">
-		<!-- <div type="button" class="btn btn-secondary">
-			<a (click)="mover = !mover">Property</a>
-		</div>
-		<div type="button" class="btn btn-secondary">
-			<a (click)="!mover  = mover">Movers</a>
-		</div> -->
         <div class="form-group">
             <label>
                 <input type="radio" name="classification" value="prop" #Option1  [(ngModel)]="classification">
@@ -26,10 +20,10 @@
     			<input *ngIf="classification =='prop'" #search class="form-control search" type="text" placeholder="Search..." (keyup)="onSearchProp(search.value)">
                 <input *ngIf="classification =='mover'" #search1 class="form-control search" type="text" placeholder="Search..." (keyup)="onSearchMover(search1.value)">
     		</div>
-    		<!-- <div class="col-lg-2 col-sm-2">
+    		<div class="col-lg-1 col-sm-2">
     			<button class="btn btn-secondary" (click)="reload()">Refresh</button>
-    		</div> -->
-    		<div class="col-lg-4 col-sm-6">
+    		</div>
+    		<div class="col-lg-3 col-sm-4">
     			<button class="btn btn-secondary" (click)="exportToExcel()">export as csv</button>
     		</div>
     		<div class="col-lg-6 col-sm-12">

@@ -116,7 +116,7 @@ export class UserComponent implements OnInit {
             destination: {
                 title: 'Destination Place',
                 filter : false
-            }
+            },
         }
     };
     errorMessage: string;
@@ -215,10 +215,9 @@ export class UserComponent implements OnInit {
                 }
             ],false);
         }
-      //  console.log(this.source.filteredAndSorted);
     }
  //get user details
- getCustomer() {
+ getCustomer() {    
         this.dataService.get_user()
         .subscribe(
             names => {
@@ -311,17 +310,17 @@ export class UserComponent implements OnInit {
 
 	        }
     }
-    exportToExcel() {
-        var options = { 
-            fieldSeparator: ',',
-            quoteStrings: '"',
-            showLabels: true, 
-            showTitle: true,
-            useBom: true,
-            headers: ['Request Id', 'Datetime', 'Name','Email','Location','Requirements','Wishlist','VisitList','Confirm','Scheduled Property','Requirements']
-        };
+    exportToExcel() {        
 
         if(this.classification == "prop"){
+            var options = { 
+                fieldSeparator: ',',
+                quoteStrings: '"',
+                showLabels: true, 
+                showTitle: true,
+                useBom: true,
+                headers: ['Request Id', 'Datetime', 'Name','Email','Location','Requirements','Wishlist','VisitList','Confirm','Scheduled Property','Requirements']
+            };
             var dummy_data = this.g_data["item"]["prop"];
             var d_data = dummy_data.filter(i=>{
                 for(var j in this.prop_source.filteredAndSorted){
@@ -331,6 +330,14 @@ export class UserComponent implements OnInit {
             new Angular2Csv(d_data, 'Rentals',options);
         }
         else if(this.classification == "mover"){
+            var options = { 
+                fieldSeparator: ',',
+                quoteStrings: '"',
+                showLabels: true, 
+                showTitle: true,
+                useBom: true,
+                headers: ['Request Id', 'Datetime', 'Name','Email','Origin','Destination']
+            };
             var dummy_data = this.g_data["item"]["mover"];
             var d_data = dummy_data.filter(i=>{
                 for(var j in this.mover_source.filteredAndSorted){
@@ -343,15 +350,12 @@ export class UserComponent implements OnInit {
 
     reload(){
         if(this.classification=="prop"){
-            alert(this.classification);
-            console.log(this.prop_source.data);
-            console.log(this.g_data["item"]["prop"]);
             this.prop_source.load(this.prop_source.data);
-            this.prop_source.refresh();
+            this.prop_source.reset();
         }
         else if(this.classification=="mover"){
-            alert(this.classification);
             this.mover_source.load(this.g_data["item"]["mover"]);
+            this.mover_source.reset();
         }
     }   
 }
