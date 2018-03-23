@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/throw';
-const fldb = 'http://apis.goflytta.com/admin';
+const fldb = 'http://api.goflytta.com/admin';
 // import 'rxjs/add/operator/do';  // for debugging
 
 /**

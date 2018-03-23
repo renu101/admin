@@ -23,21 +23,7 @@ export class FormrequestComponent implements OnInit {
 		this.getDetails();		
 	}
 	getDetails(){
-		this.localStorage.getItem("service_data").subscribe(my_data=>{
-			var fur_index;
-			if(my_data.furnishing.indexOf("Furnished")>-1){
-				fur_index = my_data.furnishing.indexOf("Furnished");
-				my_data.furnishing.splice(fur_index,1,"furnished");
-			}
-			else if(my_data.furnishing.indexOf("Semi Furnished (Wardrobes and Modular Kitchen only)")>-1){
-				fur_index = my_data.furnishing.indexOf("Semi Furnished (Wardrobes and Modular Kitchen only)");
-				my_data.furnishing.splice(fur_index,1,"s_furnished");
-
-			}
-			else if(my_data.furnishing == "Unfurnished"){
-				fur_index = my_data.furnishing.indexOf("Unfurnished");
-				my_data.furnishing.splice(fur_index,1,"n_furnished");
-			}
+		this.localStorage.getItem("service_data").subscribe(my_data=>{			
 			console.log(my_data);
 			this.serviceData = my_data;
 			this.request_id = 'FHK-HJLK-Z';
@@ -51,7 +37,21 @@ export class FormrequestComponent implements OnInit {
 					this.properties = my_data2.item.schedule;
 				}
 			});	
-			//create fitler object			
+			//create fitler object
+			var fur_index;
+			if(my_data.furnishing.indexOf("Furnished")>-1){
+				fur_index = my_data.furnishing.indexOf("Furnished");
+				my_data.furnishing.splice(fur_index,1,"furnished");
+			}
+			else if(my_data.furnishing.indexOf("Semi Furnished (Wardrobes and Modular Kitchen only)")>-1){
+				fur_index = my_data.furnishing.indexOf("Semi Furnished (Wardrobes and Modular Kitchen only)");
+				my_data.furnishing.splice(fur_index,1,"s_furnished");
+
+			}
+			else if(my_data.furnishing == "Unfurnished"){
+				fur_index = my_data.furnishing.indexOf("Unfurnished");
+				my_data.furnishing.splice(fur_index,1,"n_furnished");
+			}			
 			var rent_to  = [my_data.service_for];
 			var price = [my_data.price, my_data.price+5000];
 			filter_obj = {"areas":[my_data.loca1, my_data.loca2, my_data.loca3],
@@ -68,6 +68,7 @@ export class FormrequestComponent implements OnInit {
 
 	get_properties(){
 		this.dataService.get_filterbased(filter_obj).subscribe(my_properties =>{
+			console.log(my_properties);
 			this.new_properties = my_properties;
 		});
 	}

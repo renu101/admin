@@ -15,6 +15,8 @@ export class MoverComponent implements OnInit {
 	sidebarData : any;
 	inspectionData : any;
 	markers : any = [];
+	center_lat : number = 18.5206624;
+	center_lon : number = 73.8567415;
 	constructor(protected localStorage: AsyncLocalStorage,public dataservice : DataService,private mycookie : CookieService) { }
 
 	ngOnInit() {
@@ -31,8 +33,8 @@ export class MoverComponent implements OnInit {
 		  		this.dataservice.get_schedule(this.mover.request_id,"mover").subscribe(inspection=>{
 					this.inspectionData = inspection["item"];
 					console.log(this.inspectionData);
-					this.inspectionData.reach.lat = parseFloat(this.inspectionData.reach.lat);
-					this.inspectionData.reach.lon = parseFloat(this.inspectionData.reach.lon);
+					// this.inspectionData.reach.lat = parseFloat(this.inspectionData.reach.lat);
+					// this.inspectionData.reach.lon = parseFloat(this.inspectionData.reach.lon);
 					this.define_status();	
 					this.track_status();
 				});
@@ -77,28 +79,34 @@ export class MoverComponent implements OnInit {
 
 	define_status(){
 		if(this.inspectionData.status == 1){
-			this.inspectionData.status_val == "Notification sent";
+			this.inspectionData.status_val = "Notification sent";
 		}
 		if(this.inspectionData.status == 2){
-			this.inspectionData.status_val == "Notification received by RM";
+			this.inspectionData.status_val = "Notification received by RM";
 		}
 		if(this.inspectionData.status == 3){
-			this.inspectionData.status_val == "Notification accepted by RM";
+			this.inspectionData.status_val = "Notification accepted by RM";
 		}
 		if(this.inspectionData.status == 4){
-			this.inspectionData == "Vendor has confirm";
+			this.inspectionData = "Vendor has confirm";
 		}
 		if(this.inspectionData.status == 6){
-			this.inspectionData.status_val == "Vendor status has been updated to customer";
+			this.inspectionData.status_val = "Vendor status has been updated to customer";
 		}
 		if(this.inspectionData.status == 7){
-			this.inspectionData.status_val == "RM started for customer location";
+			this.inspectionData.status_val = "RM started for customer location";
 		}
 		if(this.inspectionData.status == 8){
-			this.inspectionData.status_val == "Vendor reached at location";
+			this.inspectionData.status_val = "Vendor reached at location";
 		}
 		if(this.inspectionData.status == 9){
-			this.inspectionData.status_val == "Item inspected";
+			this.inspectionData.status_val = "Item list updated";
+		}
+		if(this.inspectionData.status == 10){
+			this.inspectionData.status_val = "Inspection Done";
+		}
+		if(this.inspectionData.status == 11){
+			this.inspectionData.status_val = "Inspection Done";
 		}
 	}
 

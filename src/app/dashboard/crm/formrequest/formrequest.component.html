@@ -42,8 +42,8 @@
 				</div>
 			</div>
 			<hr>
-			<button class="btn btn-secondary btn-bordered" (click)="get_properties();new_showmap = !new_showmap">View more Properties</button><br>
-			<div class="row" *ngIf="new_showmap">
+			<button class="btn btn-secondary btn-bordered" (click)="get_properties();new_showmap = !new_showmap">View more Properties</button>
+			<div class="row view_prop" *ngIf="new_showmap">
 			<!-- 	<h4><strong>Filtered Properties</strong></h4><br> -->
 				<div *ngFor="let p of new_properties" class="col-lg-4 col-xs-12">
 					<div class="card">
@@ -51,7 +51,7 @@
 						  <agm-marker [latitude]="p.lat" [longitude]="p.lon"></agm-marker>
 						</agm-map>
 					    <div class="card-block">
-					        <h4 class="card-title">{{p.prop_name}}, <small>{{p.area}}| {{p.city}}</small></h4>
+					        <h4 class="card-title"><!-- {{p.prop_name}},  --><small>{{p.area}}| {{p.city}}</small></h4>
 					        <p class="card-text">
 					        	{{p.configuration}} | {{p.totalArea}} Sq feet<br/>
 					        	Rent - Rs {{p.m_rent}} | Maintenance - {{p.maintainance}}
@@ -64,7 +64,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- sidebar -->

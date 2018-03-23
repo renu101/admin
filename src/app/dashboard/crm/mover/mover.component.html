@@ -99,7 +99,7 @@
 						<h5>Track relocation</h5>
 					</div>
 					<div class="card-text">
-						<agm-map *ngIf="inspectionData" [latitude]="inspectionData.reach.lat" [longitude]="inspectionData.reach.lon">
+						<agm-map *ngIf="inspectionData" [latitude]="center_lat" [longitude]="center_lon">
 							<agm-polyline>
 				           		<agm-polyline-point *ngFor="let points of markers" [latitude]="points.latitude" [longitude]="points.longitude">
 				           		</agm-polyline-point>
