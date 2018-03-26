@@ -16,7 +16,7 @@ import { CrmRoutingModule } from './crm-routing.module';
 
 
 import { CrmComponent } from './crm.component';
-import { StatModule, TodoModule} from '../../shared';
+import { StatModule, TodoModule, ChatModule} from '../../shared';
 import { CrmsidebarComponent } from './crmsidebar/crmsidebar.component';
 import { HouseComponent } from './house/house.component';
 import { MoverComponent } from './mover/mover.component';
@@ -35,6 +35,7 @@ import { FormrequestComponent } from './formrequest/formrequest.component';
     Charts,
     StatModule,
     TodoModule,
+    ChatModule,
     NgbTooltipModule.forRoot(),
     NgbCarouselModule.forRoot(),
     NgbPopoverModule.forRoot(),

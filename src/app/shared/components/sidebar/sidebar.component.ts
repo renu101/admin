@@ -11,6 +11,7 @@ declare var $: any;
 })
 export class SidebarComponent implements OnInit {
     sidebar_val : string;
+    homeLinkEnabled : boolean = false;
     constructor(private mycookie : CookieService) { }
 
     ngOnInit() {

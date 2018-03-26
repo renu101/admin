@@ -123,6 +123,22 @@ export class DataService {
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
     }
+
+    post_msg(id,p_data): Observable<string[]>{
+        var url = fldb+"/flytta_api/v0.1/crm/post_message/"+id;
+        return this.http.post(url,p_data)
+        .map((res: Response) => res.json())
+        //.do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }
+    get_msg(id): Observable<any>{
+        var url = fldb+"/flytta_api/v0.1/crm/get_message/"+id;
+        return this.http.get(url)
+        .map((res: Response) => res.json())
+        //.do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }
+
     /**
     * Handle HTTP error
     */

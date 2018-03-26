@@ -142,10 +142,8 @@ export class UserComponent implements OnInit {
 
 //search in table
 	onSearchProp(query: string = '') {
-         if (query === '') {
-
+        if (query === '') {
             this.prop_source.setFilter([]);
-
         } else {
             this.prop_source.setFilter([
                 {
@@ -181,7 +179,7 @@ export class UserComponent implements OnInit {
       //  console.log(this.source.filteredAndSorted);
     }
     onSearchMover(query: string = '') {
-        if (query === '') {
+        if (query === ''){
 
             this.mover_source.setFilter([]);
 

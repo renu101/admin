@@ -8,7 +8,7 @@
             <div class="menu-body">
                 <ul class="sidenav">
                     <li [routerLinkActive]="['is-active']">
-                        <a [routerLink]="['home']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-home"></i> -->Home
                         </a>
                         <ul class="nested-dropdown animated">

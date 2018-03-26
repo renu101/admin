@@ -1,0 +1,64 @@
+<div class="card card-primary mb-0 todo-container">
+    <div class="card-header">
+        <div class="todo-header text-center">
+            <h4><i class="fa fa-tasks"></i>&nbsp;{{ 'Activity Updates' | translate }}</h4>
+        </div>
+    </div>
+    <div class="card-block" style="padding-bottom: 0;">
+        <div class="todo-body">
+            <div class="todo-list-wrap">
+                <ul class="todo-list" *ngIf="nameList.length > 0">
+                    <li *ngFor="let name of nameList;">
+                        <p><span style="font-weight: 100;color: #fff">{{name.datetime}}</span><br><strong> {{name.name}}</strong>[{{name.from}}] : {{name.msg}}</p>
+                        <!-- <label class="checkbox1 animated">
+                            <input type="checkbox" id="{{i}}">
+                            <span></span>
+                        </label>
+                        <label class="done animated">{{name}}</label> -->
+                    </li>
+                </ul>
+            </div>
+            <form class="todo-from-bottom">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <select [(ngModel)]="senderName" class="form-control" name="senderName">
+                                <option value="Swetha">Swetha</option>
+                                <option value="Swetha">Shashank</option>
+                                <option value="Swetha">Admin</option>
+                            </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <select [(ngModel)]="newName" class="form-control" name="newName">
+                            <option value="Customer">Customer</option>
+                            <option value="Vendor">Vendor</option>
+                            <!-- <option value="instert">3</option> -->
+                        </select>
+                        <!-- <input [(ngModel)]="newName" placeholder="To" name="newName" class="form-control" > -->
+                    </div>
+                    <div class="col-lg-12 col-sm-12" style="margin-top:10px;">             
+                        <p class="input-group">
+                            <input type="text" [(ngModel)]="newMsg" placeholder="Message" name="newMsg" class="form-control">
+                            <span class="input-group-btn">
+                                <button (click)="addName()" class="btn btn-danger">Add</button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+               <!--  <p>
+                    <input [(ngModel)]="newName" placeholder="To" name="newName" class="form-control" style="width:50% ! important">
+                </p>  -->  
+                <!-- <div class="row">
+                    <div class="col-lg-12 col-sm-12">             
+                        <p class="input-group">
+                            <input type="text" [(ngModel)]="newMsg" placeholder="Message" name="newMsg" class="form-control">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-danger">Add</button>
+                            </span>
+                        </p>
+                    </div>
+                </div> -->
+            </form>
+        </div>
+    </div>
+</div>
+
