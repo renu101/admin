@@ -21,6 +21,7 @@ export class HouseComponent implements OnInit {
 	sidebarData :any;
 	amn : any = [];
 	request_id:string;
+	user_id : string;
 	lat: number = 51.678418;
     lng: number = 7.809007;
    	strvalue : string = "747383";
@@ -134,8 +135,8 @@ export class HouseComponent implements OnInit {
 	}
 
 	getDetails(){
-		let user_id = this.mycookie.get("user");
-	    this.dataService.get_userrental(user_id).subscribe(prop => {
+		this.user_id = this.mycookie.get("user");
+	    this.dataService.get_userrental(this.user_id).subscribe(prop => {
 	    	console.log(prop);
 	    	if(prop.data == "1"){
 	    		prop = prop["item"];
