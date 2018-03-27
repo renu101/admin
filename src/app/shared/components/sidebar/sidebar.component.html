@@ -11,29 +11,29 @@
                         <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-home"></i> -->Home
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['home']">{{ 'dashboard' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['typography']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-text-width"></i> -->Typography
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['typography']" >{{ 'typography' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['grid']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                            <!--  <i class="fa fa-th-large"></i> -->Grid
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['grid']">{{ 'grid' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <!-- CRM -->
                     <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['crm', 'user']">
+                        <a [routerLink]="['crm']">
                             <!-- <i class="fa fa-th-large"></i> --> CRM
                         </a>
                         <ul class="nested-dropdown animated">
@@ -43,30 +43,30 @@
                             <li><a [routerLink]="['/dashboard/crm/request']">{{ 'request' | translate }}</a></li>
                         </ul>
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['tables', 'bootstrap-table']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-list"></i> -->Tables
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['tables', 'bootstrap-table']">{{ 'bootstrap_table' | translate }}</a></li>
                             <li><a [routerLink]="['tables', 'data-table']">{{ 'data_table' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['forms', 'elements']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-yelp"></i> -->Forms
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li class="sidemenu-header">{{ 'form' | translate }}</li>
                             <li><a [routerLink]="['forms', 'elements']">{{ 'elements' | translate }}</a></li>
                             <li><a [routerLink]="['forms', 'components']">{{ 'components' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['ui-elements', 'buttons']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-cloud-download"></i> --> UI - Elements
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li class="sidemenu-header">{{ 'user_interface' | translate }}</li>
                             <li><a [routerLink]="['ui-elements', 'alert']">{{ 'alerts' | translate }}</a></li>
                             <li><a [routerLink]="['ui-elements', 'buttons']">{{ 'buttons' | translate }}</a></li>
@@ -76,64 +76,64 @@
                             <li><a [routerLink]="['ui-elements', 'progressbar']">{{ 'progressbars' | translate }}</a></li>
                             <li><a [routerLink]="['ui-elements', 'pagination']">{{ 'pagination' | translate }}</a></li>
                             <li><a [routerLink]="['ui-elements', 'others']">{{ 'other_elements' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['charts', 'chart-js']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                            <!--  <i class="fa fa-line-chart"></i> -->
                            Charts
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li class="sidemenu-header" >{{ 'charts' | translate }}</li>
                             <li><a [routerLink]="['charts', 'chart-js']">{{ 'charts_js' | translate }}</a></li>
                             <li><a [routerLink]="['charts', 'c3-chart']">{{ 'c3_charts' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['calendar']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-calendar"></i> -->Calendar
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['calendar']">{{ 'calendar' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['mail', 'inbox']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-envelope-o"></i> --> Mail
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li class="sidemenu-header">{{ 'mail' | translate }}</li>
                             <li><a [routerLink]="['mail', 'inbox']">{{ 'inbox' | translate }}</a></li>
                             <li><a [routerLink]="['mail', 'compose']">{{ 'compose' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
-                        <a [routerLink]="['invoice']">
+                    <li [routerLinkActive]="['is-active']">
+                        <a [routerLink]="homeLinkEnabled ? '/home' : null">
                             <!-- <i class="fa fa-list-alt"></i> --> Invoice
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a [routerLink]="['invoice']">{{ 'invoice' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li [routerLinkActive]="['active']">
+                    <li [routerLinkActive]="['is-active']">
                         <a href='http://www.strapui.com/docs/ani-angular2-theme/v1.0/'>
                             <!-- <i class="fa fa-book"></i> -->Documents
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li><a href='http://www.strapui.com/docs/ani-angular2-theme/v1.0/'>{{ 'docs' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li>
                         <a>
                             <!-- <i class="fa fa-file"></i> -->Pages
                         </a>
-                        <ul class="nested-dropdown animated">
+                        <!-- <ul class="nested-dropdown animated">
                             <li class="sidemenu-header">{{ 'pages' | translate }}</li>
                             <li><a [routerLink]="['blank-page']">{{ 'blankpage' | translate }}</a></li>
                             <li><a [routerLink]="['/']">{{ 'login' | translate }}</a></li>
                             <li><a [routerLink]="['/signup']">{{ 'signup' | translate }}</a></li>
                             <li><a [routerLink]="['/error']">{{ '404page' | translate }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                 </ul>
             </div>
