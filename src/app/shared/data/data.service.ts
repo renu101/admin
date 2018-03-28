@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, RequestOptions,Headers ,Response } from '@angular/http';
+import { SessionStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs/Observable';
-
+import 'rxjs/Rx';
 import 'rxjs/add/observable/throw';
 const fldb = 'http://api.goflytta.com/admin';
+// = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbnVAZ29mbHl0dGEuY29tIiwibmFtZSI6InJlbnUiLCJfaWQiOiI1YWJiMzY2NmYwNmE3N2YyNjFiMjQ5N2EiLCJpYXQiOjE1MjIyMjU2ODgsImV4cCI6MTUyMjMxMjA4OH0.QbcPGGtktnrx1W7ifRTqRyegc1-PhFUHhYq3zTZPCuI";
 // import 'rxjs/add/operator/do';  // for debugging
 
 /**
@@ -17,7 +19,10 @@ export class DataService {
     * @param {Http} http - The injected Http.
     * @constructor
     */
-    constructor(private http: Http) {}
+    private jwt_token : string;
+    constructor(private http: Http, private storage : SessionStorageService) {
+        this.jwt_token = this.storage.retrieve('jwtToken');
+    }
 
    //var fldb = "http://ec2-13-126-145-241.ap-south-1.compute.amazonaws.com:3013";
     /**
@@ -126,18 +131,38 @@ export class DataService {
 
     post_msg(id,p_data): Observable<string[]>{
         var url = fldb+"/flytta_api/v0.1/crm/post_message/"+id;
-        return this.http.post(url,p_data)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.post(url,p_data,options)
         .map((res: Response) => res.json())
         //.do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
     }
     get_msg(id): Observable<any>{
         var url = fldb+"/flytta_api/v0.1/crm/get_message/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //.do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
     }
+    //register new user/admin
+    register_user(p_data): Observable<any>{
+        var url = fldb+"/flytta_api/v0.1/admin_register";
+        return this.http.post(url,p_data)   
+        .map((res: Response) => res.json())
+        //.do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }
+    //admin login
+    login_user(p_data): Observable<any>{
+        var url = fldb+"/flytta_api/v0.1/admin_login";        
+        return this.http.post(url,p_data)   
+        .map((res: Response) => res.json())
+        //.do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }    
 
     /**
     * Handle HTTP error

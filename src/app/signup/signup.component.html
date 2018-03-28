@@ -1,26 +1,26 @@
 <div class="login-page animate">
     <div class="row justify-content-md-center">
         <div class="col-lg-4">
-            <img src="assets/images/flat-avatar.png" class="user-avatar" />
-            <h1>Ani Theme</h1>
+            <img src="assets/images/flytta_logo_dark.png" class="user-avatar" width="80%">
+            <h1></h1>
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                        <input type="text" class="form-control input-underline input-lg" name="name" id="" [(ngModel)]="name" placeholder="Full Name">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input type="text" class="form-control input-underline input-lg" name="email" id="" placeholder="Email" [(ngModel)]="email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="password" class="form-control input-underline input-lg" name="pass" id="" placeholder="Password" [(ngModel)]="pass">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                        <input type="password" class="form-control input-underline input-lg" name="c_pass" id="" placeholder="Repeat Password" [(ngModel)]="c_pass">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard', 'home']">Register</a>&nbsp;
+                <a class="btn rounded-btn" (click)="register()">Register</a>&nbsp;
                 <a class="btn rounded-btn" [routerLink]="['/']"> Log in </a>
             </form>
         </div>

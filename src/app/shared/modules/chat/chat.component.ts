@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../../data' 
+import { DataService } from '../../data';
+import { CookieService } from 'angular2-cookie/core';
 declare var Ps: any;
 const id = "FB1Z7IJI01"
 
@@ -15,7 +16,8 @@ export class ChatComponent implements OnInit {
 	senderName :string = "";
     nameList:any = [];
 
-    constructor(private dataservice : DataService) {
+    constructor(private dataservice : DataService,
+                private mycookie : CookieService) {
         // this.nameList = [
         //     {name:'Gokul',msg:'Meeting with Nabindar Singh.'},
         //     {name:'customer',msg:'Exercise at 6:pm with Nicholas.'},
@@ -35,6 +37,7 @@ export class ChatComponent implements OnInit {
     		if(this.newName == ""){
     			this.newName = "Customer";
     		}
+            this.senderName = this.mycookie.get("name");
     		var newObj = {};
     		var currentdate = new Date();
             var date = currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear();

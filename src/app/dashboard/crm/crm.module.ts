@@ -10,7 +10,7 @@ import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import { DpDatePickerModule } from 'ng2-date-picker';
 import { ScrollToModule } from 'ng2-scroll-to-el';
-import { DataService, ExcelService } from '../../shared/data';
+import { DataService} from '../../shared/data';
 import { CrmRoutingModule } from './crm-routing.module';
 
 
@@ -53,6 +53,6 @@ import { FormrequestComponent } from './formrequest/formrequest.component';
                  // UserComponent, 
                  // RequestComponent, 
                  FormrequestComponent],
-  providers: [DataService, ExcelService]
+  providers: [DataService]
 })
 export class CrmModule { }

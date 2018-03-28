@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../../environments/environment';
+import { CookieService } from 'angular2-cookie/core';
+import {SessionStorageService } from 'ngx-webstorage';
 
 @Component({
     selector: 'app-topnav',
@@ -9,9 +11,17 @@ import { environment } from '../../../../environments/environment';
 })
 export class TopnavComponent implements OnInit {
 
-    constructor(private translate: TranslateService) { }
+    constructor(private translate: TranslateService,
+                private mycookie : CookieService, 
+                private storage : SessionStorageService) { }
 
     ngOnInit() {}
+
+    logout(){
+        alert("logout");
+        this.mycookie.removeAll();
+        this.storage.clear('jwtToken');
+    }
 
     toggleSidebar() {
         const dom: any = document.querySelector('body');
