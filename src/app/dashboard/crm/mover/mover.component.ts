@@ -17,7 +17,10 @@ export class MoverComponent implements OnInit {
 	markers : any = [];
 	center_lat : number = 18.5206624;
 	center_lon : number = 73.8567415;
-	constructor(protected localStorage: AsyncLocalStorage,public dataservice : DataService,private mycookie : CookieService) { }
+	showapp : boolean = false;
+	constructor(protected localStorage: AsyncLocalStorage,
+				public dataservice : DataService,
+				private mycookie : CookieService) { }
 
 	ngOnInit() {
 		this.getdetails();
@@ -27,18 +30,12 @@ export class MoverComponent implements OnInit {
 	  	let user_id = this.mycookie.get("user");
 		this.dataservice.get_usermover(user_id).subscribe(mover => {
 			if(mover.data == "1"){
-				console.log(mover);
 		  		this.mover = mover.item;
-		  		console.log(this.mover);
 		  		this.dataservice.get_schedule(this.mover.request_id,"mover").subscribe(inspection=>{
 					this.inspectionData = inspection["item"];
-					console.log(this.inspectionData);
-					// this.inspectionData.reach.lat = parseFloat(this.inspectionData.reach.lat);
-					// this.inspectionData.reach.lon = parseFloat(this.inspectionData.reach.lon);
 					this.define_status();	
 					this.track_status();
 				});
-		  		console.log(this.mover);
 			}				
 	  	});
 	}
@@ -124,8 +121,7 @@ export class MoverComponent implements OnInit {
 	visitStatus(){
 		this.dataservice.get_schedule(this.mover.request_id,"mover").subscribe(inspection=>{
 			this.sidebarData = inspection["item"];	
-			this.sidebarData.date = this.mover.value.date.m_date
-			console.log(this.sidebarData);	
+			this.sidebarData.date = this.mover.value.date.m_date;
 			document.getElementById('visitSidebar').style.width = '400px';
 		});
 	}

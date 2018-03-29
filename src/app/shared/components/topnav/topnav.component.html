@@ -3,7 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-header hidden-md-up">
-        <a class="navbar-brand" href="javascript:void(0)">Admin</a>
+        <a class="navbar-brand" href="javascript:void(0)">{{admin_name}}</a>
     </div>
 
     <div class="collapse navbar-collapse navbar-toggleable-sm">
@@ -124,7 +124,7 @@
             </li> -->
             <li class="nav-item dropdown" ngbDropdown>
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-                    <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile" style="height: 20px"> Admin
+                    <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile" style="height: 20px"> {{admin_name}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right animated fadeIn">
                     <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">

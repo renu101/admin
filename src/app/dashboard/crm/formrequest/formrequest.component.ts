@@ -17,18 +17,17 @@ export class FormrequestComponent implements OnInit {
 	properties :any;
 	new_properties :any = [];
 	amn : any = []
+	showapp : boolean = false;
 	constructor(protected localStorage: AsyncLocalStorage,protected dataService : DataService) { }
 
 	ngOnInit() {
 		this.getDetails();		
 	}
 	getDetails(){
-		this.localStorage.getItem("service_data").subscribe(my_data=>{			
-			console.log(my_data);
+		this.localStorage.getItem("service_data").subscribe(my_data=>{
 			this.serviceData = my_data;
 			this.request_id = 'FHK-HJLK-Z';
 			this.dataService.get_scheduleById('FHK-HJLK-Z').subscribe(my_data2=>{
-				console.log(my_data2);
 				g_data = my_data2;
 				if(my_data2.data == "0"){
 					this.msg = my_data2.msg;
@@ -61,14 +60,12 @@ export class FormrequestComponent implements OnInit {
 				"rent_to":rent_to,
 				"m_rent":price}
 			}
-			console.log(filter_obj);
 		});
 	}
 
 
 	get_properties(){
 		this.dataService.get_filterbased(filter_obj).subscribe(my_properties =>{
-			console.log(my_properties);
 			this.new_properties = my_properties;
 		});
 	}
@@ -88,9 +85,7 @@ export class FormrequestComponent implements OnInit {
 	    ];
 		this.amn = [];
 		this.dataService.get_propDetails(thisdata.service_id).subscribe(prop_data=>{
-			console.log(prop_data);
 			prop_data = prop_data["item"];
-			console.log(prop_data);;
 			for (var i in ammenities) {
 	            if (prop_data[ammenities[i]['id']] == "check" || prop_data[ammenities[i]['id']] == "true" || prop_data[ammenities[i]['id']].match(/^[0-9()]+$/)) {
 	                this.amn.push(ammenities[i]);

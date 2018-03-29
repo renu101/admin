@@ -295,7 +295,6 @@ export class UserComponent implements OnInit {
     }
 //custom event
 	onCustom(event,flag) {
-        console.log(flag);
 	        if(event.action == "edit"){
 	            let user:any = event.data.email;
 	            this.mycookie.put("user",user);

@@ -10,12 +10,15 @@ import {SessionStorageService } from 'ngx-webstorage';
     styleUrls: ['./topnav.component.scss']
 })
 export class TopnavComponent implements OnInit {
-
+    admin_name : string;
     constructor(private translate: TranslateService,
                 private mycookie : CookieService, 
                 private storage : SessionStorageService) { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.admin_name = this.mycookie.get('name');
+        console.log(this.admin_name);
+    }
 
     logout(){
         alert("logout");

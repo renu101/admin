@@ -24,7 +24,9 @@ export class HouseComponent implements OnInit {
 	user_id : string;
 	lat: number = 51.678418;
     lng: number = 7.809007;
-   	strvalue : string = "747383";
+   	strvalue : string = "747383";   
+   	showapp : boolean = false;	
+   	//lng
 	constructor(protected localStorage: AsyncLocalStorage,
 				protected dataService : DataService, 
 				public numberpipe : NumbertoPipe,
@@ -70,7 +72,6 @@ export class HouseComponent implements OnInit {
 		
 		if(type == "sch"){
 			this.dataService.get_schedule(this.request_id,"property").subscribe(sch_data =>{
-				console.log(sch_data);
 				this.sidebarData = thisdata;
 				this.sidebarData["name"] = sch_data["item"]["name"];
 				this.sidebarData["rm_id"] = sch_data["item"]["rm_id"];
@@ -137,10 +138,8 @@ export class HouseComponent implements OnInit {
 	getDetails(){
 		this.user_id = this.mycookie.get("user");
 	    this.dataService.get_userrental(this.user_id).subscribe(prop => {
-	    	console.log(prop);
 	    	if(prop.data == "1"){
 	    		prop = prop["item"];
-	            console.log(prop);
 	            let wishArray : any = [];
 	            let visitArray : any = [];
 	            let confirmArray : any = [];
