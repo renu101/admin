@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
     			jwt_token = "JWT "+jwt_token;
     			this.storage.store('jwtToken', jwt_token);
     			this.mycookie.put("email",this.email);
+                this.mycookie.put("name",response.name);
     			this.router.navigate(['/dashboard/crm/user']);
 			}
 		});

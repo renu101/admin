@@ -39,7 +39,9 @@ export class DataService {
     //get data of the users
     get_user(): Observable<string[]> {
         var url = fldb+"/flytta_api/v0.1/crm/show";
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -48,7 +50,9 @@ export class DataService {
     //get partial property details of given ids
     get_prop(p_data): Observable<string[]> {
         var url = fldb+"/flytta_api/v0.1/property/multi_id";
-        return this.http.post(url,p_data)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.post(url,p_data,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -57,7 +61,9 @@ export class DataService {
     //get schedule details
     get_schedule(request_id,type): Observable<string[]> {
         var url = fldb+"/flytta_api/v0.1/customer_schedule/getvisit/"+request_id+"/"+type;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -66,7 +72,9 @@ export class DataService {
     //get item list
     get_itemlist(id): Observable<string[]> {
         var url = fldb+"/flytta_api/v0.1/rmp/itemlist/get/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -75,7 +83,9 @@ export class DataService {
     //service request form
     get_servicedata(): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/service_data/getdata";
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -83,7 +93,9 @@ export class DataService {
     //get user's house rental details
     get_userrental(id): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/user_prop/show/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -91,7 +103,9 @@ export class DataService {
 //get user's movers details
     get_usermover(id): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/user_mover/value/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -99,7 +113,9 @@ export class DataService {
     //
     get_scheduleById(id): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/crm/schedule/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -107,7 +123,9 @@ export class DataService {
     //get property detail
     get_propDetails(id): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/portal/property/findserviceid/"+id;
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -115,7 +133,9 @@ export class DataService {
     //get the poits to track
     get_track(): Observable<any> {
         var url = fldb+"/flytta_api/v0.1/rmp/track/FB1Z7IJI01";
-        return this.http.get(url)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(url,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
@@ -123,7 +143,9 @@ export class DataService {
     //suggested property based on request form
     get_filterbased(p_data): Observable<string[]> {
         var url = fldb+"/flytta_api/v0.1/portal/property/filterbased";
-        return this.http.post(url,p_data)
+        let headers = new Headers({'Authorization':this.jwt_token});
+        let options = new RequestOptions({headers: headers});
+        return this.http.post(url,p_data,options)
         .map((res: Response) => res.json())
         //              .do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
