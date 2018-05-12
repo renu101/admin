@@ -127,9 +127,9 @@
                     <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile" style="height: 20px"> {{admin_name}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right animated fadeIn">
-                    <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
+                    <!-- <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
                         {{ 'profilee' | translate }}
-                    </a>
+                    </a> -->
                     <a class="dropdown-item" (click)="logout()" [routerLink]="['/']" >
                         {{ 'logout' | translate }}
                     </a>
@@ -142,9 +142,9 @@
             <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile">
         </a>
         <div class="dropdown-menu dropdown-menu-right animated fadeIn">
-            <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
+            <!-- <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
                 {{ 'profilee' | translate }}
-            </a>
+            </a> -->
             <a class="dropdown-item" [routerLink]="['/']" (click)="logout()">
                 {{ 'logout' | translate }}
             </a>

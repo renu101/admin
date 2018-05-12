@@ -4,7 +4,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/add/observable/throw';
-const fldb = 'http://api.goflytta.com/admin';
+const fldb = 'http://apis.goflytta.com/admin';
 // = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlbnVAZ29mbHl0dGEuY29tIiwibmFtZSI6InJlbnUiLCJfaWQiOiI1YWJiMzY2NmYwNmE3N2YyNjFiMjQ5N2EiLCJpYXQiOjE1MjIyMjU2ODgsImV4cCI6MTUyMjMxMjA4OH0.QbcPGGtktnrx1W7ifRTqRyegc1-PhFUHhYq3zTZPCuI";
 // import 'rxjs/add/operator/do';  // for debugging
 
@@ -184,7 +184,16 @@ export class DataService {
         .map((res: Response) => res.json())
         //.do(data => console.log('server data:', data))  // debug
         .catch(this.handleError);
-    }    
+    }
+    //get the slots
+    
+    get_slots(): Observable<any>{
+        var url = fldb+"/flytta_api/v0.1/rmp/show_time/2018-03-30/Kondapur";        
+        return this.http.get(url)   
+        .map((res: Response) => res.json())
+        //.do(data => console.log('server data:', data))  // debug
+        .catch(this.handleError);
+    }
 
     /**
     * Handle HTTP error

@@ -3,3 +3,4 @@
 */
 export * from './data.service';
 export * from './auth-guard.service';
+export * from './pagination.service';

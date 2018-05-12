@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     constructor(
         private translate: TranslateService,
         private router: Router
-    ) {
+    ){
         translate.addLangs(['en', 'de', 'ur', 'hi']);
         translate.setDefaultLang(localStorage.getItem('lang') || 'en');
     }

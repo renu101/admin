@@ -21,7 +21,6 @@ export class TopnavComponent implements OnInit {
     }
 
     logout(){
-        alert("logout");
         this.mycookie.removeAll();
         this.storage.clear('jwtToken');
     }

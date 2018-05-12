@@ -32,6 +32,7 @@ export class MoverComponent implements OnInit {
 			if(mover.data == "1"){
 		  		this.mover = mover.item;
 		  		this.dataservice.get_schedule(this.mover.request_id,"mover").subscribe(inspection=>{
+		  			console.log(inspection);
 					this.inspectionData = inspection["item"];
 					this.define_status();	
 					this.track_status();

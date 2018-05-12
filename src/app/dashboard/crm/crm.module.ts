@@ -4,13 +4,14 @@ import { TranslateModule } from '@ngx-translate/core';
 // import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ChartsModule as Charts} from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
+import { DpDatePickerModule } from 'ng2-date-picker';
 import { NgbCarouselModule, NgbTooltipModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 // import { DpDatePickerModule } from 'ng2-date-picker';
 import { ScrollToModule } from 'ng2-scroll-to-el';
-import { DataService} from '../../shared/data';
+import { DataService,PaginationService} from '../../shared/data';
 import { CrmRoutingModule } from './crm-routing.module';
 
 
@@ -32,6 +33,7 @@ import { FormrequestComponent } from './formrequest/formrequest.component';
     TranslateModule,
     // Ng2SmartTableModule,
     FormsModule,
+    DpDatePickerModule,
     Charts,
     StatModule,
     TodoModule,
@@ -40,7 +42,8 @@ import { FormrequestComponent } from './formrequest/formrequest.component';
     NgbCarouselModule.forRoot(),
     NgbPopoverModule.forRoot(),
         AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyBUuXndrnnJWLi85sQGI4BmGAsZliRDDcY'
+          apiKey: 'AIzaSyBUuXndrnnJWLi85sQGI4BmGAsZliRDDcY',
+          libraries: ["places"]
         }),
     HttpClientModule,
     ScrollToModule.forRoot()
@@ -53,6 +56,6 @@ import { FormrequestComponent } from './formrequest/formrequest.component';
                  // UserComponent, 
                  // RequestComponent, 
                  FormrequestComponent],
-  providers: [DataService]
+  providers: [DataService, PaginationService]
 })
 export class CrmModule { }

@@ -6,11 +6,12 @@
     "ng": "ng",
     "prestart": "node-sass -r src/styles/themes -o src/assets/temp/themes",
     "start": "ng serve --ec=true",
-    "build": "ng build --prod",
+    "build": "ng build",
     "postbuild": "node-sass -r src/styles/themes -o dist/themes",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-prod":"node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +52,7 @@
     "perfect-scrollbar": "0.8.0",
     "rxjs": "^5.5.2",
     "typescript": "^2.7.1",
+    "underscore": "^1.8.3",
     "xlsx": "^0.12.4",
     "zone.js": "0.8.18"
   },
@@ -58,6 +60,7 @@
     "@angular/cli": "^1.5.0",
     "@angular/compiler-cli": "^5.0.1",
     "@types/c3": "^0.4.41",
+    "@types/googlemaps": "^3.30.8",
     "@types/jasmine": "2.6.3",
     "@types/node": "~8.0.51",
     "codelyzer": "~4.0.1",
